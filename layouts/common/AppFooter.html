@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      .footer__top {
+        padding: 3.25rem 0 3rem;
+        border-top-color: var(--color-brand-600) !important;
+      }
+      .footer__top .container > div {
+        gap: 2rem;
+      }
+      .footer__info {
+        gap: 4rem;
+      }
+      .footer__title > h2 {
+        line-height: 0.75;
+        font-family: var(--font-lalezar);
+      }
+      .footer__title > h2 > span {
+        color: var(--color-brand-600);
+      }
+      .footer__title > h6 {
+        color: var(--color-text-description);
+      }
+      .footer__title > h2,
+      .footer__contact > div {
+        margin-bottom: 0.875rem;
+      }
+      .footer__contact > div {
+        color: var(--color-text-icon-second);
+      }
+      .footer__contact ul {
+        gap: 0.625rem;
+      }
+      .footer__contact li {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+      .footer__contact a img {
+        object-fit: contain;
+      }
+      .footer__menu .footer__category a {
+        color: var(--color-text-icon-primary);
+      }
+      .footer__category h5 {
+        margin-bottom: 1.5rem;
+        color: var(--color-text-description);
+      }
+      .footer__category ul {
+        gap: 0.625rem;
+      }
+      .footer__bottom {
+        padding: 1.5rem 0 1.6875rem;
+        border-top-color: var(--color-brand-400) !important;
+      }
+      .footer__policy {
+        column-gap: 2rem;
+        row-gap: 0.625rem;
+      }
+      .footer__policy li a {
+        color: var(--color-gray-400) !important;
+      }
+      .footer__bottom .btn.btn-1 {
+        padding: 0.625rem 0.875rem;
+        line-height: 1.4;
+        color: var(--color-brand-700);
+        border-color: var(--color-brand-300) !important;
+      }
+      .footer__top,
+      .footer__bottom {
+        background-color: var(--color-background-base-light);
+      }
+      @media only screen and (min-width: 1200px) {
+        .footer__info {
+          width: auto !important;
+        }
+        .footer__menu {
+          max-width: 53.125rem;
+        }
+        .footer__policy {
+          column-gap: 3rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <footer class="footer">
+      <div class="footer__top border border-2 border-white">
+        <div class="container container-padding-8">
+          <div
+            class="d-flex justify-content-between flex-wrap fs-6 fw-medium lh-base"
+          >
+            <div
+              class="footer__info d-flex flex-row flex-xl-column flex-wrap w-100"
+            >
+              <div class="footer__title">
+                <h2 class="fw-normal text-uppercase">
+                  Just<span>4fund.</span>
+                </h2>
+                <h6 class="fs-small fw-medium mb-0">Funding just for fun!</h6>
+              </div>
+              <div class="footer__contact">
+                <div>Follow us:</div>
+                <ul class="d-flex align-items-center">
+                  <li>
+                    <a href="" class="d-block w-100 h-100">
+                      <img
+                        class="h-100"
+                        src="../../assets/images/contact/facebook.png"
+                        alt="facebook"
+                      />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="" class="d-block w-100 h-100">
+                      <img
+                        class="h-100"
+                        src="../../assets/images/contact/x.png"
+                        alt="x"
+                      />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="" class="d-block w-100 h-100">
+                      <img
+                        class="h-100"
+                        src="../../assets/images/contact/youtube.png"
+                        alt="youtube"
+                      />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="" class="d-block w-100 h-100">
+                      <img
+                        class="h-100"
+                        src="../../assets/images/contact/instagram.png"
+                        alt="instagram"
+                      />
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="footer__menu row w-100">
+              <div class="col-12 col-sm-6 col-lg-3">
+                <div class="footer__category">
+                  <h5 class="fw-normal ln-1-75 text-uppercase">DISCOVER</h5>
+                  <ul class="d-flex flex-column">
+                    <li><a href="">Top Funded Campaigns</a></li>
+                    <li><a href="">Tech & Innovation</a></li>
+                    <li><a href="">Creative Campaigns</a></li>
+                    <li><a href="">Community & Culture</a></li>
+                    <li><a href="">Blog</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-lg-3">
+                <div class="footer__category">
+                  <h5 class="fw-normal ln-1-75 text-uppercase">LAUNCH</h5>
+                  <ul class="d-flex flex-column">
+                    <li><a href="">Start A Campaign</a></li>
+                    <li><a href="">Experts Directory</a></li>
+                    <li><a href="">Enterprise</a></li>
+                    <li><a href="">China</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-lg-3">
+                <div class="footer__category">
+                  <h5 class="fw-normal ln-1-75 text-uppercase">LEARN</h5>
+                  <ul class="d-flex flex-column">
+                    <li><a href="">How It Works</a></li>
+                    <li><a href="">Education Center</a></li>
+                    <li><a href="">What is Crowdfunding?</a></li>
+                    <li><a href="">Trust and Safety</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-lg-3">
+                <div class="footer__category">
+                  <h5 class="fw-normal ln-1-75 text-uppercase">CONTACT</h5>
+                  <ul class="d-flex flex-column">
+                    <li><a href="">Help & Support</a></li>
+                    <li><a href="">Press</a></li>
+                    <li><a href="">Careers</a></li>
+                    <li><a href="">Get in touch</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom border border-white">
+        <div class="container container-padding-8">
+          <div
+            class="d-flex justify-content-between align-items-center flex-wrap fs-small fw-normal lh-base"
+          >
+            <button
+              type="button"
+              class="btn btn-3 fs-small text-uppercase d-none d-lg-block"
+            >
+              Select currency
+            </button>
+            <ul class="footer__policy d-flex flex-wrap">
+              <li>
+                <a href="">Terms of Use</a>
+              </li>
+              <li>
+                <a href="">Privacy Policy</a>
+              </li>
+              <li>
+                <a href="">Cookie Policy</a>
+              </li>
+              <li>
+                <a>© Just4Fun since 2024. All rights reserved</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

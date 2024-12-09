@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      .header {
+        padding: 0.75rem 0;
+      }
+      .header .navbar {
+        padding: 0.25rem 0;
+      }
+      .header a {
+        color: var(--color-gray-950);
+      }
+      .header__logo {
+        padding: 0.25rem 2rem 0.25rem 0;
+        line-height: 0.857;
+        font-family: var(--font-lalezar);
+      }
+      .header__logo > span {
+        color: var(--color-brand-600);
+      }
+      .collapse.navbar-collapse > div {
+        column-gap: 2rem;
+      }
+      .nav__menu {
+        --header-submenu-space: 2.25rem;
+        column-gap: 1.5rem;
+        row-gap: 0.75rem;
+      }
+      .nav__menu > li::before {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        width: 0;
+        height: 0;
+      }
+      .nav__search__box {
+        background-color: var(--color-gray-100);
+        border-radius: 1.5rem;
+        padding: 0.75rem 1.25rem;
+      }
+      .nav__search__box > input {
+        border: none;
+        background: none;
+        outline: none;
+        flex: 1;
+      }
+      .nav__search__box svg {
+        flex-shrink: 0;
+        margin-right: 0.75rem;
+        width: 1.125rem;
+        height: 1.125rem;
+      }
+      .header__login a {
+        padding: 0.75rem 1.5rem 0.75rem 0;
+      }
+      .nav__menu .nav__menu__submenu {
+        display: none;
+        top: calc(100% + var(--header-submenu-space));
+        min-width: 11.5rem;
+        max-height: 20rem;
+        padding: 0.25rem 0 0.25rem 0.375rem;
+        border: 1px solid var(--color-gray-200);
+        background-color: var(--color-white);
+      }
+      .nav__menu .nav__menu__submenu::-webkit-scrollbar {
+        width: 1rem;
+      }
+
+      .nav__menu .nav__menu__submenu::-webkit-scrollbar-thumb {
+        box-shadow: inset 0 0 14px 14px var(--color-gray-200);
+        border-radius: var(--border-radius-md);
+        border: solid 4px transparent;
+      }
+      .nav__menu__submenu li {
+        padding: 1px 0;
+      }
+      .nav__menu__submenu li a {
+        color: var(--color-gray-900);
+        padding: 0.625rem 0.5rem;
+      }
+      .nav__menu__submenu li a:hover {
+        background-color: var(--color-gray-200);
+        transition: background 0.2s;
+      }
+      @media only screen and (min-width: 992px) {
+        .nav__menu li:hover > .nav__menu__submenu {
+          display: block;
+        }
+        .nav__menu > li:nth-child(2):hover::before {
+          width: calc(100% + 5rem);
+          height: var(--header-submenu-space);
+          background: transparent;
+          z-index: 1;
+        }
+        .nav__search__box {
+          max-width: 32rem;
+        }
+        .header__login a {
+          width: unset !important;
+        }
+      }
+      @media only screen and (min-width: 1440px) {
+        .header .navbar .container-fluid {
+          margin-left: calc(((100% - 90rem) / 2) + 2rem);
+          margin-right: calc(((100% - 90rem) / 2) + 2rem);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div
+          class="container-fluid align-items-baseline fs-6 fw-medium lh-base"
+        >
+          <a class="header__logo fs-3 fw-normal text-uppercase" href="#">
+            Just<span>4fund.</span>
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div
+              class="d-flex align-items-lg-center justify-content-lg-between w-100 flex-column flex-lg-row"
+            >
+              <ul
+                class="navbar-nav nav__menu flex-shrink-0 flex-column flex-lg-row order-1"
+              >
+                <li class="position-relative">
+                  <a href="/explore">Explore</a>
+                </li>
+                <!-- desktop  -->
+                <li class="position-relative d-none d-lg-block">
+                  <a href="/categories">Categories</a>
+                  <ul
+                    class="nav__menu__submenu position-absolute overflow-auto border-md"
+                  >
+                    <li><a class="d-block w-100 border-s" href="#">Art</a></li>
+                    <li>
+                      <a class="d-block w-100 border-s" href="#">Comics</a>
+                    </li>
+                    <li>
+                      <a class="d-block w-100 border-s" href="#">Design</a>
+                    </li>
+                    <li>
+                      <a class="d-block w-100 border-s" href="#">Technology</a>
+                    </li>
+                    <li>
+                      <a class="d-block w-100 border-s" href="#">Fashion</a>
+                    </li>
+                    <li>
+                      <a class="d-block w-100 border-s" href="#">Film</a>
+                    </li>
+                    <li>
+                      <a class="d-block w-100 border-s" href="#">Game</a>
+                    </li>
+                    <li><a class="d-block w-100 border-s" href="#">Art</a></li>
+                    <li>
+                      <a class="d-block w-100 border-s" href="#">Comics</a>
+                    </li>
+                    <li>
+                      <a class="d-block w-100 border-s" href="#">Design</a>
+                    </li>
+                    <li>
+                      <a class="d-block w-100 border-s" href="#">Technology</a>
+                    </li>
+                    <li>
+                      <a class="d-block w-100 border-s" href="#">Fashion</a>
+                    </li>
+                    <li>
+                      <a class="d-block w-100 border-s" href="#">Film</a>
+                    </li>
+                    <li>
+                      <a class="d-block w-100 border-s" href="#">Game</a>
+                    </li>
+                  </ul>
+                </li>
+
+                <!-- mobile  -->
+                <li class="nav-item dropdown d-block d-lg-none">
+                  <a
+                    class="dropdown-toggle d-block"
+                    href="/categories"
+                    id="navbarDropdown"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Categories
+                  </a>
+                  <ul
+                    class="dropdown-menu p-0"
+                    aria-labelledby="navbarDropdown"
+                  >
+                    <li><a class="dropdown-item" href="#">Art</a></li>
+                    <li>
+                      <a class="dropdown-item" href="#">Comics</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">Design</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">Technology</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">Fashion</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">Film</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">Game</a>
+                    </li>
+                    <li><a class="dropdown-item" href="#">Art</a></li>
+                    <li>
+                      <a class="dropdown-item" href="#">Comics</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">Design</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">Technology</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">Fashion</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">Film</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">Game</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+              <form
+                class="nav__search__box d-flex align-items-center order-3 order-lg-2 w-100"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-search"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+                  />
+                </svg>
+                <input
+                  class=""
+                  type="search"
+                  placeholder="Search on Web..."
+                  aria-label="Search"
+                />
+              </form>
+              <div
+                class="header__login flex-shrink-0 d-flex order-2 order-lg-3"
+              >
+                <a class="d-block w-100" href="/login">Login / Signup</a>
+                <button class="btn btn-1 d-none d-lg-block" type="button">
+                  Start a campaign
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+  </body>
+</html>

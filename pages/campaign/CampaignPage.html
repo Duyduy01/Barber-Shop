@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      #header {
+        position: sticky;
+      }
+      .campaign__card__info .card__user .divider-1,
+      .nav-sub-tabs .nav-sub-link .divider-1 {
+        margin: 0 0.75rem;
+      }
+      /* --------------------------------------------------------------------------------------- */
+      /* campaign card  */
+      .campaign__card {
+        padding: 3.75rem 0 5rem;
+        column-gap: 4.5rem;
+        row-gap: 2.5rem;
+      }
+      .campaign__card__img .card__main__img {
+        height: 26rem;
+      }
+      .campaign__card__img .card__sub__img {
+        padding: 0 3.125rem;
+      }
+      .campaign__card .slider .slider-wrapper {
+        margin: 0 -0.4375rem;
+      }
+      .campaign__card .slider .slide-item {
+        padding: 0 0.4375rem;
+      }
+      .campaign__card .slide-item > * {
+        width: 7.5rem;
+        height: 5rem;
+      }
+      .campaign__card .slide-item:first-child > * {
+        border: 2px solid var(--color-brand-600);
+      }
+      .campaign__card .slider .button-slider {
+        --button-slider-size: 2.25rem;
+        padding: 0.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      .campaign__card__info {
+        color: var(--color-gray-800);
+      }
+      .campaign__card__info .card__user .user__img {
+        width: 2.5rem;
+        height: 2.5rem;
+      }
+      .campaign__card__info .card__user .user__label {
+        color: var(--color-gray-500);
+      }
+      .campaign__card__info .card__user .divider-1 {
+        height: 24px;
+      }
+      .campaign__card__info .card__data {
+        margin: 2rem 0;
+        background-color: var(--color-white);
+      }
+      .campaign__card__info .card__data .progress {
+        margin: 0.625rem 0 1.25rem;
+        height: 0.75rem;
+      }
+      .campaign__card__info .card__btn .btn-2 {
+        width: calc((100% / 2) - 0.5rem);
+      }
+      .campaign__card__img .card__sub__img,
+      .campaign__card__info .card__btn > div {
+        margin-top: 0.75rem;
+      }
+      /* --------------------------------------------------------------------------------------- */
+      /* campaign main  */
+      .campaign__main .campaign__tabs {
+        max-width: 50.75rem;
+        background-color: var(--color-gray-50);
+        border: 1px solid var(--color-gray-200);
+        padding: 0.375rem;
+      }
+      .campaign__tabs .nav-tabs {
+        gap: 0.25rem;
+      }
+      .campaign__tabs .nav-link {
+        color: var(--color-gray-500);
+        padding: 0.625rem 0.75rem;
+        border: none;
+      }
+      .campaign__tabs .nav-link.active {
+        border-radius: var(--border-radius-sm);
+        box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.06),
+          0px 1px 3px rgba(16, 24, 40, 0.1);
+      }
+      .campaign__tabs .nav-link .count {
+        border-radius: var(--border-radius-full);
+        outline: 1px solid var(--color-gray-200);
+        padding: 0.125rem 0.625rem;
+      }
+      .campaign__tabs .nav-link.active,
+      .campaign__tabs .nav-link .count {
+        color: var(--color-gray-700);
+      }
+      .campaign__tabs .nav-tabs .nav-link:hover,
+      .campaign__tabs .nav-link.active {
+        border-color: transparent;
+      }
+      /* --------------------------------------------------------------------------------------- */
+      .nav-sub-tabs {
+        gap: 1rem;
+      }
+      .nav-sub-tabs .nav-sub-item .nav-sub-link {
+        color: var(--color-black);
+        padding-right: 0.125rem;
+        padding-left: 1.125rem;
+      }
+      .nav-sub-tabs .nav-sub-link > div {
+        color: var(--color-gray-600);
+      }
+      .nav-sub-tabs .nav-sub-link .divider-1 {
+        height: 1.25rem;
+      }
+      .nav-sub-tabs .nav-sub-link.active::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 0.25rem;
+        background-color: var(--color-blue-600);
+      }
+      .card__perk {
+        width: 20.5rem;
+        padding: 0.75rem;
+        border: 1px solid var(--color-blue-600);
+      }
+      .card__perk .perk__included ul {
+        padding-left: 1rem;
+        list-style: disc;
+      }
+      .card__perk .btn.btn-1 {
+        margin: 2rem 0 0.75rem;
+      }
+      .perk__description p,
+      .perk__included li,
+      .perk__options span {
+        color: var(--color-gray-800);
+      }
+      /* tab 1  */
+      #simple-tabpanel-0 h4 {
+        margin-bottom: 1.75rem;
+      }
+      #campaign-tab-content {
+        padding-right: 4rem;
+        padding-left: 5.625rem;
+      }
+      #campaign-tab-content h3 {
+        margin-bottom: 0.75rem;
+      }
+      #campaign-tab-content p {
+        margin-bottom: 2rem;
+      }
+      #campaign-tab-content .campaign-tab-img {
+        height: 23.5rem;
+        margin-bottom: 2.75rem;
+      }
+      /* --------------------------------------------------------------------------------------- */
+      /* --------------------------------------------------------------------------------------- */
+      /* --------------------------------------------------------------------------------------- */
+      @media only screen and (min-width: 1200px) {
+        .campaign__card__img {
+          width: 39rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container container-padding-8">
+      <section
+        class="campaign__card d-flex flex-column flex-xl-row justify-content-between"
+      >
+        <div class="campaign__card__img">
+          <div class="card__main__img border-md overflow-hidden flex-shrink-0">
+            <img
+              class="w-100 h-100 object-fit-cover"
+              src="../../assets/images/campaign/1.png"
+              alt="campaign-1"
+            />
+          </div>
+          <div class="card__sub__img slider">
+            <div class="slider-wrapper">
+              <div class="slide-item">
+                <div class="border-sm overflow-hidden">
+                  <img
+                    class="w-100 h-100 object-fit-cover"
+                    src="../../assets/images/campaign/1.png"
+                    alt="campaign-1"
+                  />
+                </div>
+              </div>
+              <div class="slide-item">
+                <div class="border-sm overflow-hidden">
+                  <img
+                    class="w-100 h-100 object-fit-cover"
+                    src="../../assets/images/campaign/2.png"
+                    alt="campaign-2"
+                  />
+                </div>
+              </div>
+              <div class="slide-item">
+                <div class="border-sm overflow-hidden">
+                  <img
+                    class="w-100 h-100 object-fit-cover"
+                    src="../../assets/images/campaign/3.png"
+                    alt="campaign-3"
+                  />
+                </div>
+              </div>
+              <div class="slide-item">
+                <div class="border-sm overflow-hidden">
+                  <img
+                    class="w-100 h-100 object-fit-cover"
+                    src="../../assets/images/campaign/4.png"
+                    alt="campaign-4"
+                  />
+                </div>
+              </div>
+              <div class="slide-item">
+                <div class="border-sm overflow-hidden">
+                  <img
+                    class="w-100 h-100 object-fit-cover"
+                    src="../../assets/images/campaign/1.png"
+                    alt="campaign-1"
+                  />
+                </div>
+              </div>
+              <div class="slide-item">
+                <div class="border-sm overflow-hidden">
+                  <img
+                    class="w-100 h-100 object-fit-cover"
+                    src="../../assets/images/campaign/2.png"
+                    alt="campaign-2"
+                  />
+                </div>
+              </div>
+              <div class="slide-item">
+                <div class="border-sm overflow-hidden">
+                  <img
+                    class="w-100 h-100 object-fit-cover"
+                    src="../../assets/images/campaign/3.png"
+                    alt="campaign-3"
+                  />
+                </div>
+              </div>
+              <div class="slide-item">
+                <div class="border-sm overflow-hidden">
+                  <img
+                    class="w-100 h-100 object-fit-cover"
+                    src="../../assets/images/campaign/4.png"
+                    alt="campaign-4"
+                  />
+                </div>
+              </div>
+            </div>
+            <button
+              class="button-slider button-prev prev d-inline-flex justify-content-center align-items-center rounded-circle"
+              data-type=""
+              data-action=""
+            >
+              <svg
+                class="w-100 h-100"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 320 512"
+              >
+                <path
+                  d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"
+                />
+              </svg>
+            </button>
+            <button
+              class="button-slider button-next next d-inline-flex justify-content-center align-items-center rounded-circle"
+              data-type=""
+              data-action=""
+            >
+              <svg
+                class="w-100 h-100"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 320 512"
+              >
+                <path
+                  d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="campaign__card__info">
+          <h2 class="fs-5xl fw-semibold lh-sm mb-3">
+            SpyraGravity: THE WORLD'S FIRST WATER BOMB LAUNCHER
+          </h2>
+          <p class="fs-medium fw-normal lh-base mb-3">
+            The SpyraGravity is a high-tech water bomb launcher with superior
+            precision and power that's out of this world.
+          </p>
+          <div class="card__user d-flex align-items-center">
+            <span class="user__img rounded-circle overflow-hidden me-3">
+              <img
+                class="w-100 h-100 object-fit-cover"
+                src="../../assets/images/campaign/icon.png"
+                alt="user-icon"
+              />
+            </span>
+            <span>
+              <span class="d-block fs-2xl fw-semibold lh-1-3">Spyra</span>
+              <span class="user__label d-flex fw-normal lh-base">
+                <span>2 campaigns</span>
+                <span class="divider-1"></span>
+                <span>Munich, Germany</span>
+              </span>
+            </span>
+          </div>
+
+          <div class="card__data border-md lh-base">
+            <div
+              class="d-flex flex-wrap align-items-baseline justify-content-between"
+            >
+              <span class="fs-4 fw-semibold"
+                >$709.827
+                <span class="fs-medium text-uppercase fw-normal"
+                  >Usd</span
+                ></span
+              >
+              <span class="fs-medium fw-semibold"
+                >1.781 <span class="fw-normal">backers</span></span
+              >
+            </div>
+            <div class="progress border-full">
+              <div
+                class="progress-bar"
+                role="progressbar"
+                style="width: 100%"
+                aria-valuenow="100"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              ></div>
+            </div>
+            <div
+              class="d-flex flex-wrap align-items-baseline justify-content-between"
+            >
+              <div class="d-flex flex-wrap align-items-center">
+                <span class="fs-medium fw-normal pe-3">14196% of $5.000 </span>
+                <span class="fs-small fw-semibold text-decoration-underline"
+                  >Flexible Goal</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="card__btn">
+            <button class="btn btn-1 w-100 text-uppercase">
+              PICK YOUR PERK
+            </button>
+            <div class="d-flex justify-content-between">
+              <button
+                class="btn btn-2 text-uppercase d-flex justify-content-center align-items-center"
+              >
+                <span class="me-1"
+                  ><img
+                    src="../../assets/images/icons/bookmark.png"
+                    alt="icon" /></span
+                >SAVE FOR LATER
+              </button>
+              <button
+                class="btn btn-2 text-uppercase d-flex justify-content-center align-items-center"
+              >
+                <span class="me-1"
+                  ><img src="../../assets/images/icons/share-06.png" alt="icon"
+                /></span>
+                Share
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="campaign__main">
+        <div class="campaign__tabs border-xl">
+          <ul
+            class="nav nav-tabs border-bottom-0 fw-semibold lh-base"
+            role="tablist"
+          >
+            <li class="nav-item" role="presentation">
+              <a
+                class="nav-link active text-uppercase"
+                id="simple-tab-0"
+                data-bs-toggle="tab"
+                href="#simple-tabpanel-0"
+                role="tab"
+                aria-controls="simple-tabpanel-0"
+                aria-selected="true"
+                >CAMPAIGN</a
+              >
+            </li>
+            <li class="nav-item" role="presentation">
+              <a
+                class="nav-link text-uppercase"
+                id="simple-tab-1"
+                data-bs-toggle="tab"
+                href="#simple-tabpanel-1"
+                role="tab"
+                aria-controls="simple-tabpanel-1"
+                aria-selected="false"
+                >REWARDS</a
+              >
+            </li>
+            <li class="nav-item" role="presentation">
+              <a
+                class="nav-link text-uppercase"
+                id="simple-tab-2"
+                data-bs-toggle="tab"
+                href="#simple-tabpanel-2"
+                role="tab"
+                aria-controls="simple-tabpanel-2"
+                aria-selected="false"
+                >RATING</a
+              >
+            </li>
+            <li class="nav-item" role="presentation">
+              <a
+                class="nav-link text-uppercase"
+                id="simple-tab-2"
+                data-bs-toggle="tab"
+                href="#simple-tabpanel-2"
+                role="tab"
+                aria-controls="simple-tabpanel-2"
+                aria-selected="false"
+                >FAQ</a
+              >
+            </li>
+            <li class="nav-item" role="presentation">
+              <a
+                class="nav-link d-flex justify-content-between align-items-center"
+                id="simple-tab-2"
+                data-bs-toggle="tab"
+                href="#simple-tabpanel-2"
+                role="tab"
+                aria-controls="simple-tabpanel-2"
+                aria-selected="false"
+                ><span class="text-uppercase"> UPDATES </span
+                ><span class="count ms-2 fs-small fw-medium lh-1-3">2</span></a
+              >
+            </li>
+            <li class="nav-item" role="presentation">
+              <a
+                class="nav-link d-flex justify-content-between align-items-center"
+                id="simple-tab-2"
+                data-bs-toggle="tab"
+                href="#simple-tabpanel-2"
+                role="tab"
+                aria-controls="simple-tabpanel-2"
+                aria-selected="false"
+                ><span class="text-uppercase">COMMENTS</span
+                ><span class="count ms-2 fs-small fw-medium lh-1-3">2</span></a
+              >
+            </li>
+            <li class="nav-item" role="presentation">
+              <a
+                class="nav-link text-uppercase"
+                id="simple-tab-2"
+                data-bs-toggle="tab"
+                href="#simple-tabpanel-2"
+                role="tab"
+                aria-controls="simple-tabpanel-2"
+                aria-selected="false"
+                >COMMUNITY</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="tab-content pt-5" id="tab-content">
+          <!-- main tab 1  -->
+          <div
+            class="tab-pane active"
+            id="simple-tabpanel-0"
+            role="tabpanel"
+            aria-labelledby="simple-tab-0"
+          >
+            <div class="d-flex align-items-baseline">
+              <!-- nav  -->
+              <div class="flex-shrink-0">
+                <h4 class="fs-2xl fw-bold lh-1-3">Available rewards</h4>
+                <ul class="nav nav-sub-tabs flex-column lh-base" role="tablist">
+                  <li class="nav-sub-item" role="presentation">
+                    <a
+                      class="nav-sub-link active d-block position-relative"
+                      id="campaign-tab-0"
+                      data-bs-toggle="tab"
+                      href="#campaign-tabpanel-0"
+                      role="tab"
+                      aria-controls="campaign-tabpanel-0"
+                      aria-selected="true"
+                    >
+                      <span class="fw-semibold d-inline-block mb-1"
+                        >Endurance-Bundle</span
+                      >
+                      <div class="d-flex align-items-center fs-small fw-normal">
+                        <span>USD $ 388</span>
+                        <span class="divider-1"></span>
+                        <span>10 items included</span>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="nav-sub-item" role="presentation">
+                    <a
+                      class="nav-sub-link d-block position-relative"
+                      id="campaign-tab-1"
+                      data-bs-toggle="tab"
+                      href="#campaign-tabpanel-1"
+                      role="tab"
+                      aria-controls="campaign-tabpanel-1"
+                      aria-selected="true"
+                    >
+                      <span class="fw-semibold d-inline-block mb-1"
+                        >Adventure Perks</span
+                      >
+                      <div class="d-flex align-items-center fs-small fw-normal">
+                        <span>USD $ 299</span>
+                        <span class="divider-1"></span>
+                        <span>10 items included</span>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="nav-sub-item" role="presentation">
+                    <a
+                      class="nav-sub-link d-block position-relative"
+                      id="campaign-tab-2"
+                      data-bs-toggle="tab"
+                      href="#campaign-tabpanel-2"
+                      role="tab"
+                      aria-controls="campaign-tabpanel-2"
+                      aria-selected="true"
+                    >
+                      <span class="fw-semibold d-inline-block mb-1"
+                        >PikaBoost 2 Duo</span
+                      >
+                      <div class="d-flex align-items-center fs-small fw-normal">
+                        <span>USD $ 359</span>
+                        <span class="divider-1"></span>
+                        <span>10 items included</span>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <!-- tabs  -->
+              <div
+                class="tab-content campaign-tab-content"
+                id="campaign-tab-content"
+              >
+                <div
+                  class="tab-pane fade show active"
+                  id="campaign-tabpanel-0"
+                  role="tabpanel"
+                  aria-labelledby="campaign-tab-0"
+                >
+                  <div>
+                    <h3>Title</h3>
+                    <p>
+                      Lorem Ipsum is simply dummy text of the printing and
+                      typesetting industry. Lorem Ipsum has been the industry's
+                      standard dummy text ever since the 1500s, when an unknown
+                      printer took a galley of type and scrambled it to make a
+                      type specimen book.
+                    </p>
+                    <div class="campaign-tab-img">
+                      <img
+                        class="w-100 h-100 object-fit-cover"
+                        src="../../assets/images/campaign/6.png"
+                        alt="spyra"
+                      />
+                    </div>
+
+                    <h3>Title</h3>
+                    <p>
+                      Lorem Ipsum is simply dummy text of the printing and
+                      typesetting industry. Lorem Ipsum has been the industry's
+                      standard dummy text ever since the 1500s, when an unknown
+                      printer took a galley of type and scrambled it to make a
+                      type specimen book.
+                    </p>
+                    <div class="campaign-tab-img">
+                      <img
+                        class="w-100 h-100 object-fit-cover"
+                        src="../../assets/images/campaign/6.png"
+                        alt="spyra"
+                      />
+                    </div>
+
+                    <h3>Title</h3>
+                    <p>
+                      Lorem Ipsum is simply dummy text of the printing and
+                      typesetting industry. Lorem Ipsum has been the industry's
+                      standard dummy text ever since the 1500s, when an unknown
+                      printer took a galley of type and scrambled it to make a
+                      type specimen book.
+                    </p>
+                    <div class="campaign-tab-img">
+                      <img
+                        class="w-100 h-100 object-fit-cover"
+                        src="../../assets/images/campaign/6.png"
+                        alt="spyra"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="tab-pane fade"
+                  id="campaign-tabpanel-2"
+                  role="tabpanel"
+                  aria-labelledby="campaign-tab-2"
+                >
+                  <div>
+                    <h3>Title</h3>
+                    <p>
+                      Lorem Ipsum is simply dummy text of the printing and
+                      typesetting industry. Lorem Ipsum has been the industry's
+                      standard dummy text ever since the 1500s, when an unknown
+                      printer took a galley of type and scrambled it to make a
+                      type specimen book.
+                    </p>
+                    <div class="campaign-tab-img">
+                      <img
+                        class="w-100 h-100 object-fit-cover"
+                        src="../../assets/images/campaign/6.png"
+                        alt="spyra"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="tab-pane fade"
+                  id="campaign-tabpanel-1"
+                  role="tabpanel"
+                  aria-labelledby="campaign-tab-1"
+                >
+                  <div>
+                    <h3>Title</h3>
+                    <p>
+                      Lorem Ipsum is simply dummy text of the printing and
+                      typesetting industry. Lorem Ipsum has been the industry's
+                      standard dummy text ever since the 1500s, when an unknown
+                      printer took a galley of type and scrambled it to make a
+                      type specimen book.
+                    </p>
+                    <div class="campaign-tab-img">
+                      <img
+                        class="w-100 h-100 object-fit-cover"
+                        src="../../assets/images/campaign/6.png"
+                        alt="spyra"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- perk card  -->
+              <div class="card__perk border-xl lh-base flex-shrink-0">
+                <h5 class="fs-5 fw-semibold text-uppercase mb-4">
+                  CHOOSE YOUR PERKS
+                </h5>
+                <div class="mb-4">
+                  <img
+                    class="w-100 h-100 object-fit-cover"
+                    src="../../assets/images/campaign/5.png"
+                    alt="perk"
+                  />
+                </div>
+                <div class="perk__description mb-4">
+                  <h6 class="fw-semibold mb-2">Endurance-Bundle</h6>
+                  <p class="fw-normal">
+                    Save 31% on the Endurance Bundle for just $388!
+                  </p>
+                </div>
+                <div class="perk__included mb-4">
+                  <h6 class="fw-semibold mb-2">Included Items</h6>
+                  <ul class="fs-small fw-normal">
+                    <li>Remote Controller</li>
+                    <li>Pikaboost 2</li>
+                    <li>158Wh battery</li>
+                  </ul>
+                </div>
+                <div class="perk__options">
+                  <h6 class="fw-semibold mb-2">Options</h6>
+                  <span class="fs-small fw-normal">No option</span>
+                </div>
+                <button class="btn btn-1 fs-small text-uppercase w-100">
+                  Get this perk
+                </button>
+                <button class="btn btn-2 fs-small text-uppercase w-100">
+                  View all perks
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- main tab 2  -->
+          <div
+            class="tab-pane"
+            id="simple-tabpanel-1"
+            role="tabpanel"
+            aria-labelledby="simple-tab-1"
+          >
+            Tab 2 selected
+          </div>
+
+          <!-- main tab 3  -->
+          <div
+            class="tab-pane"
+            id="simple-tabpanel-2"
+            role="tabpanel"
+            aria-labelledby="simple-tab-2"
+          >
+            Tab 3 selected
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,1798 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      .home__section__margin {
+        margin-bottom: 5rem;
+      }
+      .banner__title,
+      .home__raised .raised__wrapper {
+        color: var(--color-white-smoke);
+      }
+      .home__hotness .home__products__title,
+      .home__new__products .home__products__title {
+        margin-bottom: 1.75rem;
+      }
+      .verify,
+      .code {
+        padding: 0.25rem 0.625rem;
+        border-radius: var(--border-radius-md);
+      }
+      .verify {
+        color: var(--color-success-700);
+        background-color: var(--color-success-50);
+        border-color: var(--color-success-200) !important;
+      }
+      .code {
+        color: var(--color-warning-700);
+        background-color: var(--color-warning-50);
+        border-color: var(--color-warning-200) !important;
+      }
+      .home__product__content,
+      .home__aboutus__content h3,
+      .home__aboutus__content .home__aboutus__statistics .statistics__number,
+      .home__feedbacks,
+      .home__categories {
+        color: var(--color-gray-950);
+      }
+      .home__product__info > div:first-child > span,
+      .home__product__funding,
+      .home__aboutus__content > p,
+      .home__aboutus__content .statistics__label {
+        color: var(--color-gray-700);
+      }
+      .banner__info .info__card,
+      .home__feedback > p {
+        margin-bottom: 1.25rem;
+      }
+      .home__feedbacks h3,
+      .home__categories h3 {
+        margin-bottom: 2rem;
+      }
+      .home__feedback,
+      .home__category {
+        background-color: var(--color-gray-50);
+        border: 1px solid var(--color-gray-200);
+      }
+      /* --------------------------------------------------------------------------------------- */
+      /* banner  */
+      .home__banner .banner__img img {
+        opacity: 0.9;
+        backdrop-filter: blur(4px);
+      }
+      .home__banner .banner__img .coating {
+        background-color: #0c111d;
+        opacity: 0.5;
+      }
+      .home__banner .banner__wrapper .banner__content {
+        column-gap: 10rem;
+        row-gap: 1.875rem;
+        padding-top: 26.25rem;
+        padding-bottom: 5rem;
+      }
+      .banner__title h1,
+      .banner__title h2 {
+        line-height: 1.2;
+        letter-spacing: -3%;
+      }
+      .banner__title,
+      .banner__info {
+        flex: 1;
+      }
+      .banner__info {
+        max-width: 31.5rem;
+        color: var(--color-gray-800);
+      }
+      .banner__info .info__card {
+        padding: 1rem 1.5rem;
+        background-color: var(--color-white);
+      }
+      .banner__info .info__card .progress {
+        margin: 1.25rem 0;
+        height: 0.75rem;
+      }
+      .banner__info .info__img > button {
+        width: calc((100% / 3) - 0.5rem);
+        height: 6.75rem;
+      }
+      .banner__info .info__img img.active {
+        border: 4px solid white;
+      }
+      /* --------------------------------------------------------------------------------------- */
+      /* raised */
+      .home__raised {
+        background-color: var(--color-blue-700);
+      }
+      .home__raised .raised__wrapper {
+        padding: 2.5rem 0;
+      }
+      .home__raised .raised__wrapper > span > span {
+        color: var(--color-gray-25);
+      }
+      /* --------------------------------------------------------------------------------------- */
+      /* hotness  */
+      .home__products__title > h3 {
+        padding: 0.3125rem 0;
+      }
+      .home__product__item {
+        cursor: pointer;
+      }
+      .home__product__item:hover .home__product__view__btn {
+        transform: translateY(0);
+      }
+      /* .buttons__slider__wrapper {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        transform: translateY(-50%);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      } */
+      .button-slider {
+        bottom: calc(100% + 1.75rem);
+      }
+      .button-slider.button-prev {
+        left: calc(100% - var(--button-slider-size) * 2 - 0.75rem);
+      }
+      .home__product__content,
+      .home__product__info,
+      .home__feedback > div {
+        gap: 0.75rem;
+      }
+      .home__products .home__products__main img {
+        aspect-ratio: 3/2;
+      }
+      .home__product__verify,
+      .home__product__view__btn .btn.btn-2 {
+        left: 0.75rem;
+        width: calc(100% - 1.5rem);
+      }
+      .home__product__verify {
+        z-index: 1;
+        top: 0.75rem;
+      }
+      .home__product__view__btn {
+        transform: translateY(100%);
+        transition: transform 0.2s ease;
+      }
+      .home__product__view__btn .btn.btn-2 {
+        z-index: 1;
+        bottom: 0.75rem;
+        padding: 0.625rem;
+      }
+      .home__product__view__btn > div {
+        background-color: var(--color-black);
+        opacity: 0.4;
+      }
+      .home__product__info .progress {
+        height: 0.5rem;
+      }
+      .home__product__price {
+        gap: 0.3125rem;
+      }
+      .home__product__price span:last-child {
+        color: var(--color-error);
+      }
+      .home__product__oldPrice {
+        color: var(--color-gray-500);
+      }
+      .home__product__funding .divider-1 {
+        height: 1.125rem;
+        margin: 0 0.75rem;
+      }
+      /* --------------------------------------------------------------------------------------- */
+      /* about us  */
+      .home__aboutus .home__aboutus__wrapper {
+        column-gap: 7rem;
+      }
+      .home__aboutus__img {
+        height: 24.6875rem;
+      }
+      .home__aboutus__content {
+        padding: 2.5rem 0;
+      }
+      .home__aboutus__content > p {
+        margin-bottom: 2.5rem;
+      }
+      .home__aboutus__content .home__aboutus__statistics .statistics__number {
+        padding-bottom: 0.125rem;
+      }
+      .home__aboutus__content .home__aboutus__statistics .divider-1 {
+        height: 3.125rem;
+        margin: 0 17.25px;
+      }
+      /* --------------------------------------------------------------------------------------- */
+      /* feed back  */
+      .home__feedback {
+        padding: 1.5rem;
+      }
+      .home__feedback .user__img {
+        width: 3rem;
+        height: 3rem;
+      }
+      .home__feedback .user__info .user__name {
+        margin-bottom: 0.125rem;
+      }
+      .home__feedback .user__info .user__position {
+        color: var(--color-gray-700);
+      }
+      /* --------------------------------------------------------------------------------------- */
+      /* categories  */
+      .home__category {
+        padding: 2.25rem 1rem;
+      }
+      .home__categories .row {
+        row-gap: 0.75rem;
+      }
+
+      /* --------------------------------------------------------------------------------------- */
+      @media only screen and (min-width: 576px) and (max-width: 767.98px) {
+        .home__categories .row {
+          row-gap: 1rem;
+        }
+        .home__categories .row > *:nth-child(odd) {
+          padding-inline-start: calc(var(--bs-gutter-x) * 0.5);
+          padding-inline-end: 0.5rem;
+        }
+        .home__categories .row > *:nth-child(even) {
+          padding-inline-end: calc(var(--bs-gutter-x) * 0.5);
+          padding-inline-start: 0.5rem;
+        }
+      }
+      @media only screen and (min-width: 768px) {
+        .home__categories .row {
+          row-gap: 1.25rem;
+        }
+        .home__categories .row > * {
+          padding-inline: 0.625rem;
+        }
+      }
+      @media only screen and (min-width: 768px) and (max-width: 991.98px) {
+        .home__categories .row > *:nth-child(3n + 1) {
+          padding-inline-start: calc(var(--bs-gutter-x) * 0.5);
+        }
+        .home__categories .row > *:nth-child(3n) {
+          padding-inline-end: calc(var(--bs-gutter-x) * 0.5);
+        }
+      }
+      @media only screen and (min-width: 992px) {
+        .home__categories .row > *:nth-child(5n + 1) {
+          padding-inline-start: calc(var(--bs-gutter-x) * 0.5);
+        }
+        .home__categories .row > *:nth-child(5n) {
+          padding-inline-end: calc(var(--bs-gutter-x) * 0.5);
+        }
+      }
+      @media only screen and (min-width: 1200px) {
+        .home__aboutus__img {
+          width: 37rem;
+        }
+        .home__aboutus__content {
+          padding: 77.5px 0;
+        }
+      }
+      @media only screen and (min-width: 1400px) {
+        .home__products .home__products__main .row {
+          margin-right: -1rem;
+          margin-left: -1rem;
+        }
+        .home__products .home__products__main .row > * {
+          padding-right: 1rem;
+          padding-left: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="home__banner position-relative">
+      <div
+        class="banner__img position-absolute top-0 right-0 bottom-0 left-0 w-100"
+      >
+        <img
+          class="w-100 h-100 object-fit-cover"
+          src="../../assets/images/banner/home-banner.jpg"
+          alt="barber-shop"
+        />
+        <div
+          class="coating position-absolute top-0 right-0 bottom-0 left-0 w-100 h-100"
+        ></div>
+      </div>
+      <div class="container container-padding-52 h-100">
+        <div class="banner__wrapper position-relative h-100">
+          <div
+            class="banner__content d-flex flex-column flex-xl-row justify-content-between align-items-xl-center"
+          >
+            <div class="banner__title lh-base">
+              <h1 class="fs-6xl fw-bold mb-0">Affordable Barber</h1>
+              <h2 class="fs-6xl fw-bold mb-0">Shop for Everyone</h2>
+              <p class="fw-medium mt-3 mb-4">
+                Quality haircuts at a price everyone can afford. Our barbershop
+                is dedicated to providing professional service and great style
+                for all, without breaking the bank.
+              </p>
+              <a href="/campaign" class="btn btn-2" type="button"
+                >View campaign</a
+              >
+            </div>
+            <div class="banner__info">
+              <div class="info__card border-md lh-base">
+                <div
+                  class="d-flex flex-wrap align-items-baseline justify-content-between"
+                >
+                  <span class="fs-4 fw-semibold"
+                    >$709.827
+                    <span class="fs-medium text-uppercase fw-normal"
+                      >Usd</span
+                    ></span
+                  >
+                  <span class="fs-medium fw-semibold"
+                    >1.781 <span class="fw-normal">backers</span></span
+                  >
+                </div>
+                <div class="progress border-full">
+                  <div
+                    class="progress-bar"
+                    role="progressbar"
+                    style="width: 100%"
+                    aria-valuenow="100"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
+                </div>
+                <div
+                  class="d-flex flex-wrap align-items-baseline justify-content-between"
+                >
+                  <div class="d-flex flex-wrap align-items-center">
+                    <span class="fs-medium fw-normal pe-3"
+                      >14196% of $5.000
+                    </span>
+                    <span class="fs-small fw-semibold text-decoration-underline"
+                      >Flexible Goal</span
+                    >
+                  </div>
+                  <span class="fs-medium fw-bold"
+                    >3 <span class="fw-normal">days left</span></span
+                  >
+                </div>
+              </div>
+              <div
+                class="info__img overflow-hidden d-none d-sm-flex align-items-center justify-content-between"
+              >
+                <button>
+                  <img
+                    class="active h-100 w-100 object-fit-cover border-sm"
+                    src="../../assets/images/banner/info-1.jpg"
+                    alt="banner-1"
+                  />
+                </button>
+                <button>
+                  <img
+                    class="h-100 w-100 object-fit-cover border-sm"
+                    src="../../assets/images/banner/info-2.jpg"
+                    alt="banner-2"
+                  />
+                </button>
+                <button>
+                  <img
+                    class="h-100 w-100 object-fit-cover border-sm"
+                    src="../../assets/images/banner/info-3.jpg"
+                    alt="banner-3"
+                  />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="home__raised home__section__margin">
+      <div class="raised__wrapper text-center">
+        <p class="fs-5 mb-0">We đi raised</p>
+        <span class="fs-5xl ln-sm fw-bold">$99,456,345<span>.23</span></span>
+      </div>
+    </section>
+    <section class="home__main">
+      <div class="container container-padding-52">
+        <section class="home__hotness home__section__margin">
+          <div class="home__products">
+            <div class="home__products__title">
+              <h3 class="fs-3xl fw-semibold lh-sm mb-0">Hotness</h3>
+            </div>
+            <div class="home__products__main slider">
+              <div class="row slider-wrapper" id="hostness">
+                <div class="col-8 col-md-5 col-lg-4 slide-item">
+                  <a
+                    href="/campaign"
+                    class="home__product__item d-flex flex-column h-100"
+                  >
+                    <div
+                      class="border-md overflow-hidden position-relative flex-shrink-0 flex-shrink-0"
+                    >
+                      <img
+                        class="w-100 h-100 object-fit-cover"
+                        src="../../assets/images/products/product-1.png"
+                        alt="product-1"
+                      />
+                      <div
+                        class="home__product__verify d-flex justify-content-between align-items-start position-absolute fs-small fw-medium lh-base"
+                      >
+                        <span class="product__verify verify border"
+                          >Verified</span
+                        >
+                      </div>
+                      <div
+                        class="home__product__view__btn position-absolute top-0 right-0 bottom-0 left-0 w-100"
+                      >
+                        <button
+                          class="btn btn-2 position-absolute"
+                          type="button"
+                        >
+                          View campaign
+                        </button>
+                        <div class="w-100 h-100"></div>
+                      </div>
+                    </div>
+                    <div
+                      class="home__product__content d-flex flex-column justify-content-between mt-3 h-100 h-100"
+                    >
+                      <div>
+                        <h4 class="fs-medium fw-medium lh-base mb-0">
+                          LIVALL PikaBoost 2: Electrify Your Rides with Ease
+                        </h4>
+                      </div>
+                      <div
+                        class="home__product__info d-flex flex-column fs-small fw-normal lh-sm"
+                      >
+                        <div>
+                          <span>Starting at</span>
+                          <div
+                            class="home__product__price d-flex align-items-baseline"
+                          >
+                            <span class="fs-medium fw-bold lh-base">$534</span
+                            ><span
+                              class="home__product__oldPrice text-decoration-underline"
+                              >$600</span
+                            ><span>(31% OFF)</span>
+                          </div>
+                        </div>
+                        <div class="progress">
+                          <div
+                            class="progress-bar"
+                            role="progressbar"
+                            style="width: 60%"
+                            aria-valuenow="100"
+                            aria-valuemin="0"
+                            aria-valuemax="100"
+                          ></div>
+                        </div>
+                        <div
+                          class="home__product__funding d-flex flex-wrap align-items-center"
+                        >
+                          <span>$747.002 raised</span>
+                          <span class="divider-1"></span>
+                          <span>12313% funded</span>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div class="col-8 col-md-5 col-lg-4 slide-item">
+                  <a
+                    href="/campaign"
+                    class="home__product__item d-flex flex-column h-100"
+                  >
+                    <div
+                      class="border-md overflow-hidden position-relative flex-shrink-0 flex-shrink-0"
+                    >
+                      <img
+                        class="w-100 h-100 object-fit-cover"
+                        src="../../assets/images/products/product-2.png"
+                        alt="product-2"
+                      />
+                      <div
+                        class="home__product__verify d-flex justify-content-between align-items-start position-absolute fs-small fw-medium lh-base"
+                      >
+                        <span class="product__verify verify border"
+                          >Verified</span
+                        >
+                        <span class="product__code code border"
+                          >2D 23H 47S</span
+                        >
+                      </div>
+                      <div
+                        class="home__product__view__btn position-absolute top-0 right-0 bottom-0 left-0 w-100"
+                      >
+                        <button
+                          class="btn btn-2 position-absolute"
+                          type="button"
+                        >
+                          View campaign
+                        </button>
+                        <div class="w-100 h-100"></div>
+                      </div>
+                    </div>
+                    <div
+                      class="home__product__content d-flex flex-column justify-content-between mt-3 h-100"
+                    >
+                      <div>
+                        <h4 class="fs-medium fw-medium lh-base mb-0">
+                          LIVALL PikaBoost 2
+                        </h4>
+                      </div>
+                      <div
+                        class="home__product__info d-flex flex-column fs-small fw-normal lh-sm"
+                      >
+                        <div>
+                          <span>Starting at</span>
+                          <div
+                            class="home__product__price d-flex align-items-baseline"
+                          >
+                            <span class="fs-medium fw-bold lh-base">$534</span
+                            ><span
+                              class="home__product__oldPrice text-decoration-underline"
+                              >$600</span
+                            ><span>(31% OFF)</span>
+                          </div>
+                        </div>
+                        <div class="progress">
+                          <div
+                            class="progress-bar"
+                            role="progressbar"
+                            style="width: 60%"
+                            aria-valuenow="100"
+                            aria-valuemin="0"
+                            aria-valuemax="100"
+                          ></div>
+                        </div>
+                        <div
+                          class="home__product__funding d-flex flex-wrap align-items-center"
+                        >
+                          <span>$747.002 raised</span>
+                          <span class="divider-1"></span>
+                          <span>12313% funded</span>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div class="col-8 col-md-5 col-lg-4 slide-item">
+                  <a
+                    href="/campaign"
+                    class="home__product__item d-flex flex-column h-100"
+                  >
+                    <div
+                      class="border-md overflow-hidden position-relative flex-shrink-0 flex-shrink-0"
+                    >
+                      <img
+                        class="w-100 h-100 object-fit-cover"
+                        src="../../assets/images/products/product-3.png"
+                        alt="product-1"
+                      />
+                      <div
+                        class="home__product__verify d-flex justify-content-between align-items-start position-absolute fs-small fw-medium lh-base"
+                      >
+                        <span class="product__verify verify border"
+                          >Verified</span
+                        >
+                        <span class="product__code code border"
+                          >2D 23H 47S</span
+                        >
+                      </div>
+                      <div
+                        class="home__product__view__btn position-absolute top-0 right-0 bottom-0 left-0 w-100"
+                      >
+                        <button
+                          class="btn btn-2 position-absolute"
+                          type="button"
+                        >
+                          View campaign
+                        </button>
+                        <div class="w-100 h-100"></div>
+                      </div>
+                    </div>
+                    <div
+                      class="home__product__content d-flex flex-column justify-content-between mt-3 h-100"
+                    >
+                      <div>
+                        <h4 class="fs-medium fw-medium lh-base mb-0">
+                          LIVALL PikaBoost 2: Electrify Your Rides with Ease
+                        </h4>
+                      </div>
+                      <div
+                        class="home__product__info d-flex flex-column fs-small fw-normal lh-sm"
+                      >
+                        <div>
+                          <span>Starting at</span>
+                          <div
+                            class="home__product__price d-flex align-items-baseline"
+                          >
+                            <span class="fs-medium fw-bold lh-base">$534</span
+                            ><span
+                              class="home__product__oldPrice text-decoration-underline"
+                              >$600</span
+                            ><span>(31% OFF)</span>
+                          </div>
+                        </div>
+                        <div class="progress">
+                          <div
+                            class="progress-bar"
+                            role="progressbar"
+                            style="width: 60%"
+                            aria-valuenow="100"
+                            aria-valuemin="0"
+                            aria-valuemax="100"
+                          ></div>
+                        </div>
+                        <div
+                          class="home__product__funding d-flex flex-wrap align-items-center"
+                        >
+                          <span>$747.002 raised</span>
+                          <span class="divider-1"></span>
+                          <span>12313% funded</span>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div class="col-8 col-md-5 col-lg-4 slide-item">
+                  <a
+                    href="/campaign"
+                    class="home__product__item d-flex flex-column h-100"
+                  >
+                    <div
+                      class="border-md overflow-hidden position-relative flex-shrink-0"
+                    >
+                      <img
+                        class="w-100 h-100 object-fit-cover"
+                        src="../../assets/images/products/product-1.png"
+                        alt="product-1"
+                      />
+                      <div
+                        class="home__product__verify d-flex justify-content-between align-items-start position-absolute fs-small fw-medium lh-base"
+                      >
+                        <span class="product__verify verify border"
+                          >Verified</span
+                        >
+                      </div>
+                      <div
+                        class="home__product__view__btn position-absolute top-0 right-0 bottom-0 left-0 w-100"
+                      >
+                        <button
+                          class="btn btn-2 position-absolute"
+                          type="button"
+                        >
+                          View campaign
+                        </button>
+                        <div class="w-100 h-100"></div>
+                      </div>
+                    </div>
+                    <div
+                      class="home__product__content d-flex flex-column justify-content-between mt-3 h-100"
+                    >
+                      <div>
+                        <h4 class="fs-medium fw-medium lh-base mb-0">
+                          LIVALL PikaBoost 2: Electrify Your Rides with Ease
+                        </h4>
+                      </div>
+                      <div
+                        class="home__product__info d-flex flex-column fs-small fw-normal lh-sm"
+                      >
+                        <div>
+                          <span>Starting at</span>
+                          <div
+                            class="home__product__price d-flex align-items-baseline"
+                          >
+                            <span class="fs-medium fw-bold lh-base">$534</span
+                            ><span
+                              class="home__product__oldPrice text-decoration-underline"
+                              >$600</span
+                            ><span>(31% OFF)</span>
+                          </div>
+                        </div>
+                        <div class="progress">
+                          <div
+                            class="progress-bar"
+                            role="progressbar"
+                            style="width: 60%"
+                            aria-valuenow="100"
+                            aria-valuemin="0"
+                            aria-valuemax="100"
+                          ></div>
+                        </div>
+                        <div
+                          class="home__product__funding d-flex flex-wrap align-items-center"
+                        >
+                          <span>$747.002 raised</span>
+                          <span class="divider-1"></span>
+                          <span>12313% funded</span>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div class="col-8 col-md-5 col-lg-4 slide-item">
+                  <a
+                    href="/campaign"
+                    class="home__product__item d-flex flex-column h-100"
+                  >
+                    <div
+                      class="border-md overflow-hidden position-relative flex-shrink-0"
+                    >
+                      <img
+                        class="w-100 h-100 object-fit-cover"
+                        src="../../assets/images/products/product-2.png"
+                        alt="product-2"
+                      />
+                      <div
+                        class="home__product__verify d-flex justify-content-between align-items-start position-absolute fs-small fw-medium lh-base"
+                      >
+                        <span class="product__verify verify border"
+                          >Verified</span
+                        >
+                        <span class="product__code code border"
+                          >2D 23H 47S</span
+                        >
+                      </div>
+                      <div
+                        class="home__product__view__btn position-absolute top-0 right-0 bottom-0 left-0 w-100"
+                      >
+                        <button
+                          class="btn btn-2 position-absolute"
+                          type="button"
+                        >
+                          View campaign
+                        </button>
+                        <div class="w-100 h-100"></div>
+                      </div>
+                    </div>
+                    <div
+                      class="home__product__content d-flex flex-column justify-content-between mt-3 h-100"
+                    >
+                      <div>
+                        <h4 class="fs-medium fw-medium lh-base mb-0">
+                          LIVALL PikaBoost 2
+                        </h4>
+                      </div>
+                      <div
+                        class="home__product__info d-flex flex-column fs-small fw-normal lh-sm"
+                      >
+                        <div>
+                          <span>Starting at</span>
+                          <div
+                            class="home__product__price d-flex align-items-baseline"
+                          >
+                            <span class="fs-medium fw-bold lh-base">$534</span
+                            ><span
+                              class="home__product__oldPrice text-decoration-underline"
+                              >$600</span
+                            ><span>(31% OFF)</span>
+                          </div>
+                        </div>
+                        <div class="progress">
+                          <div
+                            class="progress-bar"
+                            role="progressbar"
+                            style="width: 60%"
+                            aria-valuenow="100"
+                            aria-valuemin="0"
+                            aria-valuemax="100"
+                          ></div>
+                        </div>
+                        <div
+                          class="home__product__funding d-flex flex-wrap align-items-center"
+                        >
+                          <span>$747.002 raised</span>
+                          <span class="divider-1"></span>
+                          <span>12313% funded</span>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div class="col-8 col-md-5 col-lg-4 slide-item">
+                  <a
+                    href="/campaign"
+                    class="home__product__item d-flex flex-column h-100"
+                  >
+                    <div
+                      class="border-md overflow-hidden position-relative flex-shrink-0"
+                    >
+                      <img
+                        class="w-100 h-100 object-fit-cover"
+                        src="../../assets/images/products/product-3.png"
+                        alt="product-1"
+                      />
+                      <div
+                        class="home__product__verify d-flex justify-content-between align-items-start position-absolute fs-small fw-medium lh-base"
+                      >
+                        <span class="product__verify verify border"
+                          >Verified</span
+                        >
+                        <span class="product__code code border"
+                          >2D 23H 47S</span
+                        >
+                      </div>
+                      <div
+                        class="home__product__view__btn position-absolute top-0 right-0 bottom-0 left-0 w-100"
+                      >
+                        <button
+                          class="btn btn-2 position-absolute"
+                          type="button"
+                        >
+                          View campaign
+                        </button>
+                        <div class="w-100 h-100"></div>
+                      </div>
+                    </div>
+                    <div
+                      class="home__product__content d-flex flex-column justify-content-between mt-3 h-100"
+                    >
+                      <div>
+                        <h4 class="fs-medium fw-medium lh-base mb-0">
+                          LIVALL PikaBoost 2: Electrify Your Rides with Ease
+                        </h4>
+                      </div>
+                      <div
+                        class="home__product__info d-flex flex-column fs-small fw-normal lh-sm"
+                      >
+                        <div>
+                          <span>Starting at</span>
+                          <div
+                            class="home__product__price d-flex align-items-baseline"
+                          >
+                            <span class="fs-medium fw-bold lh-base">$534</span
+                            ><span
+                              class="home__product__oldPrice text-decoration-underline"
+                              >$600</span
+                            ><span>(31% OFF)</span>
+                          </div>
+                        </div>
+                        <div class="progress">
+                          <div
+                            class="progress-bar"
+                            role="progressbar"
+                            style="width: 60%"
+                            aria-valuenow="100"
+                            aria-valuemin="0"
+                            aria-valuemax="100"
+                          ></div>
+                        </div>
+                        <div
+                          class="home__product__funding d-flex flex-wrap align-items-center"
+                        >
+                          <span>$747.002 raised</span>
+                          <span class="divider-1"></span>
+                          <span>12313% funded</span>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <!-- <div class="buttons__slider__wrapper"> -->
+              <button
+                class="button-slider button-prev prev d-none d-lg-inline-flex justify-content-center align-items-center rounded-circle"
+                data-type="hostness"
+                data-action="prev"
+              >
+                <svg
+                  class="w-100 h-100"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 320 512"
+                >
+                  <path
+                    d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"
+                  />
+                </svg>
+              </button>
+              <button
+                class="button-slider button-next next d-none d-lg-inline-flex justify-content-center align-items-center rounded-circle"
+                data-type="hostness"
+                data-action="next"
+              >
+                <svg
+                  class="w-100 h-100"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 320 512"
+                >
+                  <path
+                    d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"
+                  />
+                </svg>
+              </button>
+              <!-- </div> -->
+            </div>
+          </div>
+        </section>
+        <section class="home__new__products home__section__margin">
+          <div class="home__products">
+            <div class="home__products__title">
+              <h3 class="fs-3xl fw-semibold lh-sm mb-0">Just released</h3>
+            </div>
+            <div class="home__products__main slider">
+              <div class="row slider-wrapper" id="new-products">
+                <div class="col-8 col-md-5 col-lg-4 slide-item">
+                  <a
+                    href="/campaign"
+                    class="home__product__item d-flex flex-column h-100"
+                  >
+                    <div
+                      class="border-md overflow-hidden position-relative flex-shrink-0"
+                    >
+                      <img
+                        class="w-100 h-100 object-fit-cover"
+                        src="../../assets/images/products/product-4.png"
+                        alt="product-4"
+                      />
+                      <div
+                        class="home__product__verify d-flex justify-content-between align-items-start position-absolute fs-small fw-medium lh-base"
+                      >
+                        <span class="product__verify verify border"
+                          >Verified</span
+                        >
+                      </div>
+                      <div
+                        class="home__product__view__btn position-absolute top-0 right-0 bottom-0 left-0 w-100"
+                      >
+                        <button
+                          class="btn btn-2 position-absolute"
+                          type="button"
+                        >
+                          View campaign
+                        </button>
+                        <div class="w-100 h-100"></div>
+                      </div>
+                    </div>
+                    <div
+                      class="home__product__content d-flex flex-column justify-content-between mt-3 h-100"
+                    >
+                      <div>
+                        <h4 class="fs-medium fw-medium lh-base mb-0">
+                          LIVALL PikaBoost 2: Electrify Your Rides with Ease
+                        </h4>
+                      </div>
+                      <div
+                        class="home__product__info d-flex flex-column fs-small fw-normal lh-sm"
+                      >
+                        <div>
+                          <span>Starting at</span>
+                          <div
+                            class="home__product__price d-flex align-items-baseline"
+                          >
+                            <span class="fs-medium fw-bold lh-base">$534</span
+                            ><span
+                              class="home__product__oldPrice text-decoration-underline"
+                              >$600</span
+                            ><span>(31% OFF)</span>
+                          </div>
+                        </div>
+                        <div class="progress">
+                          <div
+                            class="progress-bar"
+                            role="progressbar"
+                            style="width: 60%"
+                            aria-valuenow="100"
+                            aria-valuemin="0"
+                            aria-valuemax="100"
+                          ></div>
+                        </div>
+                        <div
+                          class="home__product__funding d-flex flex-wrap align-items-center"
+                        >
+                          <span>$747.002 raised</span>
+                          <span class="divider-1"></span>
+                          <span>12313% funded</span>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div class="col-8 col-md-5 col-lg-4 slide-item">
+                  <a
+                    href="/campaign"
+                    class="home__product__item d-flex flex-column h-100"
+                  >
+                    <div
+                      class="border-md overflow-hidden position-relative flex-shrink-0"
+                    >
+                      <img
+                        class="w-100 h-100 object-fit-cover"
+                        src="../../assets/images/products/product-3.png"
+                        alt="product-3"
+                      />
+                      <div
+                        class="home__product__verify d-flex justify-content-between align-items-start position-absolute fs-small fw-medium lh-base"
+                      >
+                        <span class="product__verify verify border"
+                          >Verified</span
+                        >
+                        <span class="product__code code border"
+                          >2D 23H 47S</span
+                        >
+                      </div>
+                      <div
+                        class="home__product__view__btn position-absolute top-0 right-0 bottom-0 left-0 w-100"
+                      >
+                        <button
+                          class="btn btn-2 position-absolute"
+                          type="button"
+                        >
+                          View campaign
+                        </button>
+                        <div class="w-100 h-100"></div>
+                      </div>
+                    </div>
+                    <div
+                      class="home__product__content d-flex flex-column justify-content-between mt-3 h-100"
+                    >
+                      <div>
+                        <h4 class="fs-medium fw-medium lh-base mb-0">
+                          LIVALL PikaBoost 2: Electrify Your Rides with Ease
+                        </h4>
+                      </div>
+                      <div
+                        class="home__product__info d-flex flex-column fs-small fw-normal lh-sm"
+                      >
+                        <div>
+                          <span>Starting at</span>
+                          <div
+                            class="home__product__price d-flex align-items-baseline"
+                          >
+                            <span class="fs-medium fw-bold lh-base">$534</span
+                            ><span
+                              class="home__product__oldPrice text-decoration-underline"
+                              >$600</span
+                            ><span>(31% OFF)</span>
+                          </div>
+                        </div>
+                        <div class="progress">
+                          <div
+                            class="progress-bar"
+                            role="progressbar"
+                            style="width: 60%"
+                            aria-valuenow="100"
+                            aria-valuemin="0"
+                            aria-valuemax="100"
+                          ></div>
+                        </div>
+                        <div
+                          class="home__product__funding d-flex flex-wrap align-items-center"
+                        >
+                          <span>$747.002 raised</span>
+                          <span class="divider-1"></span>
+                          <span>12313% funded</span>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div class="col-8 col-md-5 col-lg-4 slide-item">
+                  <a
+                    href="/campaign"
+                    class="home__product__item d-flex flex-column h-100"
+                  >
+                    <div
+                      class="border-md overflow-hidden position-relative flex-shrink-0"
+                    >
+                      <img
+                        class="w-100 h-100 object-fit-cover"
+                        src="../../assets/images/products/product-1.png"
+                        alt="product-1"
+                      />
+                      <div
+                        class="home__product__verify d-flex justify-content-between align-items-start position-absolute fs-small fw-medium lh-base"
+                      >
+                        <span class="product__verify verify border"
+                          >Verified</span
+                        >
+                        <span class="product__code code border"
+                          >2D 23H 47S</span
+                        >
+                      </div>
+                      <div
+                        class="home__product__view__btn position-absolute top-0 right-0 bottom-0 left-0 w-100"
+                      >
+                        <button
+                          class="btn btn-2 position-absolute"
+                          type="button"
+                        >
+                          View campaign
+                        </button>
+                        <div class="w-100 h-100"></div>
+                      </div>
+                    </div>
+                    <div
+                      class="home__product__content d-flex flex-column justify-content-between mt-3 h-100"
+                    >
+                      <div>
+                        <h4 class="fs-medium fw-medium lh-base mb-0">
+                          LIVALL PikaBoost 2: Electrify Your Rides with Ease
+                        </h4>
+                      </div>
+                      <div
+                        class="home__product__info d-flex flex-column fs-small fw-normal lh-sm"
+                      >
+                        <div>
+                          <span>Starting at</span>
+                          <div
+                            class="home__product__price d-flex align-items-baseline"
+                          >
+                            <span class="fs-medium fw-bold lh-base">$534</span
+                            ><span
+                              class="home__product__oldPrice text-decoration-underline"
+                              >$600</span
+                            ><span>(31% OFF)</span>
+                          </div>
+                        </div>
+                        <div class="progress">
+                          <div
+                            class="progress-bar"
+                            role="progressbar"
+                            style="width: 60%"
+                            aria-valuenow="100"
+                            aria-valuemin="0"
+                            aria-valuemax="100"
+                          ></div>
+                        </div>
+                        <div
+                          class="home__product__funding d-flex flex-wrap align-items-center"
+                        >
+                          <span>$747.002 raised</span>
+                          <span class="divider-1"></span>
+                          <span>12313% funded</span>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div class="col-8 col-md-5 col-lg-4 slide-item">
+                  <a
+                    href="/campaign"
+                    class="home__product__item d-flex flex-column h-100"
+                  >
+                    <div
+                      class="border-md overflow-hidden position-relative flex-shrink-0"
+                    >
+                      <img
+                        class="w-100 h-100 object-fit-cover"
+                        src="../../assets/images/products/product-3.png"
+                        alt="product-3"
+                      />
+                      <div
+                        class="home__product__verify d-flex justify-content-between align-items-start position-absolute fs-small fw-medium lh-base"
+                      >
+                        <span class="product__verify verify border"
+                          >Verified</span
+                        >
+                        <span class="product__code code border"
+                          >2D 23H 47S</span
+                        >
+                      </div>
+                      <div
+                        class="home__product__view__btn position-absolute top-0 right-0 bottom-0 left-0 w-100"
+                      >
+                        <button
+                          class="btn btn-2 position-absolute"
+                          type="button"
+                        >
+                          View campaign
+                        </button>
+                        <div class="w-100 h-100"></div>
+                      </div>
+                    </div>
+                    <div
+                      class="home__product__content d-flex flex-column justify-content-between mt-3 h-100"
+                    >
+                      <div>
+                        <h4 class="fs-medium fw-medium lh-base mb-0">
+                          LIVALL PikaBoost 2
+                        </h4>
+                      </div>
+                      <div
+                        class="home__product__info d-flex flex-column fs-small fw-normal lh-sm"
+                      >
+                        <div>
+                          <span>Starting at</span>
+                          <div
+                            class="home__product__price d-flex align-items-baseline"
+                          >
+                            <span class="fs-medium fw-bold lh-base">$534</span
+                            ><span
+                              class="home__product__oldPrice text-decoration-underline"
+                              >$600</span
+                            ><span>(31% OFF)</span>
+                          </div>
+                        </div>
+                        <div class="progress">
+                          <div
+                            class="progress-bar"
+                            role="progressbar"
+                            style="width: 60%"
+                            aria-valuenow="100"
+                            aria-valuemin="0"
+                            aria-valuemax="100"
+                          ></div>
+                        </div>
+                        <div
+                          class="home__product__funding d-flex flex-wrap align-items-center"
+                        >
+                          <span>$747.002 raised</span>
+                          <span class="divider-1"></span>
+                          <span>12313% funded</span>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div class="col-8 col-md-5 col-lg-4 slide-item">
+                  <a
+                    href="/campaign"
+                    class="home__product__item d-flex flex-column h-100"
+                  >
+                    <div
+                      class="border-md overflow-hidden position-relative flex-shrink-0"
+                    >
+                      <img
+                        class="w-100 h-100 object-fit-cover"
+                        src="../../assets/images/products/product-4.png"
+                        alt="product-4"
+                      />
+                      <div
+                        class="home__product__verify d-flex justify-content-between align-items-start position-absolute fs-small fw-medium lh-base"
+                      >
+                        <span class="product__verify verify border"
+                          >Verified</span
+                        >
+                      </div>
+                      <div
+                        class="home__product__view__btn position-absolute top-0 right-0 bottom-0 left-0 w-100"
+                      >
+                        <button
+                          class="btn btn-2 position-absolute"
+                          type="button"
+                        >
+                          View campaign
+                        </button>
+                        <div class="w-100 h-100"></div>
+                      </div>
+                    </div>
+                    <div
+                      class="home__product__content d-flex flex-column justify-content-between mt-3 h-100"
+                    >
+                      <div>
+                        <h4 class="fs-medium fw-medium lh-base mb-0">
+                          LIVALL PikaBoost 2: Electrify Your Rides with Ease
+                        </h4>
+                      </div>
+                      <div
+                        class="home__product__info d-flex flex-column fs-small fw-normal lh-sm"
+                      >
+                        <div>
+                          <span>Starting at</span>
+                          <div
+                            class="home__product__price d-flex align-items-baseline"
+                          >
+                            <span class="fs-medium fw-bold lh-base">$534</span
+                            ><span
+                              class="home__product__oldPrice text-decoration-underline"
+                              >$600</span
+                            ><span>(31% OFF)</span>
+                          </div>
+                        </div>
+                        <div class="progress">
+                          <div
+                            class="progress-bar"
+                            role="progressbar"
+                            style="width: 60%"
+                            aria-valuenow="100"
+                            aria-valuemin="0"
+                            aria-valuemax="100"
+                          ></div>
+                        </div>
+                        <div
+                          class="home__product__funding d-flex flex-wrap align-items-center"
+                        >
+                          <span>$747.002 raised</span>
+                          <span class="divider-1"></span>
+                          <span>12313% funded</span>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div class="col-8 col-md-5 col-lg-4 slide-item">
+                  <a
+                    href="/campaign"
+                    class="home__product__item d-flex flex-column h-100"
+                  >
+                    <div
+                      class="border-md overflow-hidden position-relative flex-shrink-0"
+                    >
+                      <img
+                        class="w-100 h-100 object-fit-cover"
+                        src="../../assets/images/products/product-1.png"
+                        alt="product-1"
+                      />
+                      <div
+                        class="home__product__verify d-flex justify-content-between align-items-start position-absolute fs-small fw-medium lh-base"
+                      >
+                        <span class="product__verify verify border"
+                          >Verified</span
+                        >
+                        <span class="product__code code border"
+                          >2D 23H 47S</span
+                        >
+                      </div>
+                      <div
+                        class="home__product__view__btn position-absolute top-0 right-0 bottom-0 left-0 w-100"
+                      >
+                        <button
+                          class="btn btn-2 position-absolute"
+                          type="button"
+                        >
+                          View campaign
+                        </button>
+                        <div class="w-100 h-100"></div>
+                      </div>
+                    </div>
+                    <div
+                      class="home__product__content d-flex flex-column justify-content-between mt-3 h-100"
+                    >
+                      <div>
+                        <h4 class="fs-medium fw-medium lh-base mb-0">
+                          LIVALL PikaBoost 2
+                        </h4>
+                      </div>
+                      <div
+                        class="home__product__info d-flex flex-column fs-small fw-normal lh-sm"
+                      >
+                        <div>
+                          <span>Starting at</span>
+                          <div
+                            class="home__product__price d-flex align-items-baseline"
+                          >
+                            <span class="fs-medium fw-bold lh-base">$534</span
+                            ><span
+                              class="home__product__oldPrice text-decoration-underline"
+                              >$600</span
+                            ><span>(31% OFF)</span>
+                          </div>
+                        </div>
+                        <div class="progress">
+                          <div
+                            class="progress-bar"
+                            role="progressbar"
+                            style="width: 60%"
+                            aria-valuenow="100"
+                            aria-valuemin="0"
+                            aria-valuemax="100"
+                          ></div>
+                        </div>
+                        <div
+                          class="home__product__funding d-flex flex-wrap align-items-center"
+                        >
+                          <span>$747.002 raised</span>
+                          <span class="divider-1"></span>
+                          <span>12313% funded</span>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <!-- <div class="buttons__slider__wrapper"> -->
+              <button
+                class="button-slider button-prev prev d-none d-lg-inline-flex justify-content-center align-items-center rounded-circle"
+                data-type="new-products"
+                data-action="prev"
+              >
+                <svg
+                  class="w-100 h-100"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 320 512"
+                >
+                  <path
+                    d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"
+                  />
+                </svg>
+              </button>
+              <button
+                class="button-slider button-next next d-none d-lg-inline-flex justify-content-center align-items-center rounded-circle"
+                data-type="new-products"
+                data-action="next"
+              >
+                <svg
+                  class="w-100 h-100"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 320 512"
+                >
+                  <path
+                    d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"
+                  />
+                </svg>
+              </button>
+              <!-- </div> -->
+            </div>
+          </div>
+        </section>
+        <section class="home__aboutus home__section__margin">
+          <div
+            class="home__aboutus__wrapper d-xl-flex justify-content-between align-items-center"
+          >
+            <div
+              class="home__aboutus__img border-md overflow-hidden flex-shrink-0"
+            >
+              <img
+                class="w-100 h-100 object-fit-cover"
+                src="../../assets/images/aboutus/1.png"
+                alt="about barber-shop"
+              />
+            </div>
+            <div class="home__aboutus__content fw-medium lh-base">
+              <h3 class="fs-3xl fw-semibold lh-sm mb-3 text-break">
+                About JUST4Fund
+              </h3>
+              <p class="text-break">
+                Where dreams take flight. Explore our crowdfunding website,
+                where ideas find a home, communities come together and dreams
+                are brought to life. Join the movement, fuel innovation, be part
+                of something extraordianry.
+              </p>
+              <div
+                class="home__aboutus__statistics d-flex flex-wrap align-items-center"
+              >
+                <span>
+                  <span class="d-block statistics__number fs-medium text-break"
+                    >260,231</span
+                  >
+                  <span
+                    class="d-block statistics__label fs-small fw-normal text-break"
+                    >Project funded</span
+                  >
+                </span>
+                <span class="divider-1"></span>
+                <span>
+                  <span class="d-block statistics__number fs-medium text-break"
+                    >1,000,260,231</span
+                  >
+                  <span
+                    class="d-block statistics__label fs-small fw-normal text-break"
+                    >Towards creative work</span
+                  >
+                </span>
+                <span class="divider-1"></span>
+                <span>
+                  <span class="d-block statistics__number fs-medium text-break"
+                    >10,260,231</span
+                  >
+                  <span
+                    class="d-block statistics__label fs-small fw-normal text-break"
+                    >Pledges</span
+                  >
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+    <section class="home__feedbacks home__section__margin">
+      <div class="container">
+        <h3 class="text-center fs-3xl fw-semibold lh-sm">
+          What our customers say
+        </h3>
+      </div>
+      <div class="home__feedbacks__wrapper fw-medium lh-base overflow-hidden">
+        <div class="row flex-nowrap slider" id="home__feedbacks__scroll">
+          <div class="col col-10 col-sm-8 col-md-7 col-lg-5 slider-item">
+            <div class="home__feedback border-md">
+              <p>
+                “As a first-time entrepreneur, launching my project here was a
+                game-changer. The tools provided to showcase my work were
+                intuitive, and I felt supported throughout the campaign. Thanks
+                to this platform, I surpassed my funding goal and connected with
+                an amazing community”
+              </p>
+              <div class="d-flex flex-wrap align-items-stretch">
+                <span
+                  class="user__img rounded-circle overflow-hidden flex-shrink-0"
+                >
+                  <img
+                    class="w-100 h-100"
+                    src="../../assets/images/users/user-1.png"
+                    alt="user-1"
+                  />
+                </span>
+                <span class="user__info">
+                  <span class="user__name d-block fs-medium"
+                    >Johnny Nguyen</span
+                  >
+                  <span class="user__position d-block fs-small fw-normal"
+                    >CEO of ABC song</span
+                  >
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col col-10 col-sm-8 col-md-7 col-lg-5 slider-item">
+            <div class="home__feedback border-md">
+              <p>
+                “As a first-time entrepreneur, launching my project here was a
+                game-changer. The tools provided to showcase my work were
+                intuitive, and I felt supported throughout the campaign. Thanks
+                to this platform, I surpassed my funding goal and connected with
+                an amazing community”
+              </p>
+              <div class="d-flex flex-wrap align-items-stretch">
+                <span
+                  class="user__img rounded-circle overflow-hidden flex-shrink-0"
+                >
+                  <img
+                    class="w-100 h-100"
+                    src="../../assets/images/users/user-2.png"
+                    alt="user-2"
+                  />
+                </span>
+                <span class="user__info">
+                  <span class="user__name d-block fs-medium"
+                    >Johnny Nguyen</span
+                  >
+                  <span class="user__position d-block fs-small fw-normal"
+                    >CEO of ABC song</span
+                  >
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col col-10 col-sm-8 col-md-7 col-lg-5 slider-item">
+            <div class="home__feedback border-md">
+              <p>
+                “As a first-time entrepreneur, launching my project here was a
+                game-changer. The tools provided to showcase my work were
+                intuitive, and I felt supported throughout the campaign. Thanks
+                to this platform, I surpassed my funding goal and connected with
+                an amazing community”
+              </p>
+              <div class="d-flex flex-wrap align-items-stretch">
+                <span
+                  class="user__img rounded-circle overflow-hidden flex-shrink-0"
+                >
+                  <img
+                    class="w-100 h-100"
+                    src="../../assets/images/users/user-1.png"
+                    alt="user-1"
+                  />
+                </span>
+                <span class="user__info">
+                  <span class="user__name d-block fs-medium"
+                    >Johnny Nguyen</span
+                  >
+                  <span class="user__position d-block fs-small fw-normal"
+                    >CEO of ABC song</span
+                  >
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col col-10 col-sm-8 col-md-7 col-lg-5 slider-item">
+            <div class="home__feedback border-md">
+              <p>
+                “As a first-time entrepreneur, launching my project here was a
+                game-changer. The tools provided to showcase my work were
+                intuitive, and I felt supported throughout the campaign. Thanks
+                to this platform, I surpassed my funding goal and connected with
+                an amazing community”
+              </p>
+              <div class="d-flex flex-wrap align-items-stretch">
+                <span
+                  class="user__img rounded-circle overflow-hidden flex-shrink-0"
+                >
+                  <img
+                    class="w-100 h-100"
+                    src="../../assets/images/users/user-1.png"
+                    alt="user-1"
+                  />
+                </span>
+                <span class="user__info">
+                  <span class="user__name d-block fs-medium"
+                    >Johnny Nguyen</span
+                  >
+                  <span class="user__position d-block fs-small fw-normal"
+                    >CEO of ABC song</span
+                  >
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col col-10 col-sm-8 col-md-7 col-lg-5 slider-item">
+            <div class="home__feedback border-md">
+              <p>
+                “As a first-time entrepreneur, launching my project here was a
+                game-changer. The tools provided to showcase my work were
+                intuitive, and I felt supported throughout the campaign. Thanks
+                to this platform, I surpassed my funding goal and connected with
+                an amazing community”
+              </p>
+              <div class="d-flex flex-wrap align-items-stretch">
+                <span
+                  class="user__img rounded-circle overflow-hidden flex-shrink-0"
+                >
+                  <img
+                    class="w-100 h-100"
+                    src="../../assets/images/users/user-2.png"
+                    alt="user-2"
+                  />
+                </span>
+                <span class="user__info">
+                  <span class="user__name d-block fs-medium"
+                    >Johnny Nguyen</span
+                  >
+                  <span class="user__position d-block fs-small fw-normal"
+                    >CEO of ABC song</span
+                  >
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col col-10 col-sm-8 col-md-7 col-lg-5 slider-item">
+            <div class="home__feedback border-md">
+              <p>
+                “As a first-time entrepreneur, launching my project here was a
+                game-changer. The tools provided to showcase my work were
+                intuitive, and I felt supported throughout the campaign. Thanks
+                to this platform, I surpassed my funding goal and connected with
+                an amazing community”
+              </p>
+              <div class="d-flex flex-wrap align-items-stretch">
+                <span
+                  class="user__img rounded-circle overflow-hidden flex-shrink-0"
+                >
+                  <img
+                    class="w-100 h-100"
+                    src="../../assets/images/users/user-1.png"
+                    alt="user-1"
+                  />
+                </span>
+                <span class="user__info">
+                  <span class="user__name d-block fs-medium"
+                    >Johnny Nguyen</span
+                  >
+                  <span class="user__position d-block fs-small fw-normal"
+                    >CEO of ABC song</span
+                  >
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="home__main home__categories home__section__margin">
+      <div class="container container-padding-52 text-center">
+        <h3 class="fs-3xl fw-semibold lh-sm">Our categories</h3>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5">
+          <div class="col">
+            <div class="home__category fs-medium fw-medium lh-base border-md">
+              Art
+            </div>
+          </div>
+          <div class="col">
+            <div class="home__category fs-medium fw-medium lh-base border-md">
+              Comics
+            </div>
+          </div>
+          <div class="col">
+            <div class="home__category fs-medium fw-medium lh-base border-md">
+              Crafts
+            </div>
+          </div>
+          <div class="col">
+            <div class="home__category fs-medium fw-medium lh-base border-md">
+              Dance
+            </div>
+          </div>
+          <div class="col">
+            <div class="home__category fs-medium fw-medium lh-base border-md">
+              Design
+            </div>
+          </div>
+          <div class="col">
+            <div class="home__category fs-medium fw-medium lh-base border-md">
+              Fashion
+            </div>
+          </div>
+          <div class="col">
+            <div class="home__category fs-medium fw-medium lh-base border-md">
+              Film
+            </div>
+          </div>
+          <div class="col">
+            <div class="home__category fs-medium fw-medium lh-base border-md">
+              Food
+            </div>
+          </div>
+          <div class="col">
+            <div class="home__category fs-medium fw-medium lh-base border-md">
+              Drink
+            </div>
+          </div>
+          <div class="col">
+            <div class="home__category fs-medium fw-medium lh-base border-md">
+              Games
+            </div>
+          </div>
+          <div class="col">
+            <div class="home__category fs-medium fw-medium lh-base border-md">
+              Journalism
+            </div>
+          </div>
+          <div class="col">
+            <div class="home__category fs-medium fw-medium lh-base border-md">
+              Music
+            </div>
+          </div>
+          <div class="col">
+            <div class="home__category fs-medium fw-medium lh-base border-md">
+              Photography
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      import { handleSlide } from "../../main.js";
+
+      function slideCallback(...args) {
+        const [slider, actionType, behavior] = args;
+        const maxScrollLeft = slider.scrollWidth - slider.clientWidth;
+        const itemWidth = slider.children[0]?.offsetWidth || 0;
+
+        if (actionType === "prev" && slider.scrollLeft > 0)
+          scrollSlider(slider, -itemWidth, behavior);
+        else if (actionType === "next" && slider.scrollLeft < maxScrollLeft)
+          scrollSlider(slider, itemWidth, behavior);
+        else return;
+      }
+
+      function scrollSlider(slider, offset, behavior) {
+        slider.scrollBy({
+          left: offset,
+          behavior: behavior,
+        });
+      }
+
+      function setupButtonsSliderListener(buttonSelector) {
+        const buttons = document.querySelectorAll(buttonSelector);
+
+        buttons.forEach((button) => {
+          button.addEventListener("click", (event) => {
+            handleSlide(event, slideCallback);
+          });
+        });
+      }
+
+      function initializeSliderFeedBacks(sliderSelector) {
+        const slider = document.querySelector(sliderSelector);
+        const secondItem = slider?.children[1];
+        console.log(secondItem.offsetLeft);
+
+        if (secondItem) {
+          slider.scrollLeft = secondItem.offsetLeft;
+        }
+      }
+
+      (function initializeApp() {
+        // Thiết lập sự kiện cho các nút
+        const buttonSelector = ".prev, .next";
+        setupButtonsSliderListener(buttonSelector);
+
+        // Thiết lập vị trí ban đầu
+        const sliderSelector = "#home__feedbacks__scroll";
+        initializeSliderFeedBacks(sliderSelector);
+      })();
+    </script>
+  </body>
+</html>
