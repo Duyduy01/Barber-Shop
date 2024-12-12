@@ -8,6 +8,9 @@
 
 /* text  */
 /* font-size  */
+.fs-xs {
+  font-size: calc(var(--font-size-body) * 0.75); /* 12 */
+}
 .fs-small {
   font-size: calc(var(--font-size-body) * 0.875); /* 14 */
 }
@@ -19,6 +22,9 @@
 }
 .fs-3xl {
   font-size: calc(var(--font-size-body) * 1.875); /* 30 */
+}
+.fs-4xl {
+  font-size: calc(var(--font-size-body) * 2.25); /* 36 */
 }
 .fs-5xl {
   font-size: calc(var(--font-size-body) * 3); /* 48 */

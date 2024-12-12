@@ -5,16 +5,23 @@
       #header {
         position: sticky;
       }
-      .campaign__card__info .card__user .divider-1,
-      .nav-sub-tabs .nav-sub-link .divider-1 {
+      .divider-1 {
         margin: 0 0.75rem;
+        height: 1.25rem;
+      }
+      .nav-sub-tabs .nav-sub-link.active::before,
+      .rating__tab .user__img::before,
+      .reply__content::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
       }
       /* --------------------------------------------------------------------------------------- */
       /* campaign card  */
       .campaign__card {
         padding: 3.75rem 0 5rem;
         column-gap: 4.5rem;
-        row-gap: 2.5rem;
       }
       .campaign__card__img .card__main__img {
         height: 26rem;
@@ -41,7 +48,13 @@
         top: 50%;
         transform: translateY(-50%);
       }
-      .campaign__card__info {
+      .campaign__card__info,
+      .perk__description p,
+      .perk__included li,
+      .perk__options span,
+      .rewards__card,
+      .rating__tab,
+      .question__callout span {
         color: var(--color-gray-800);
       }
       .campaign__card__info .card__user .user__img {
@@ -66,7 +79,8 @@
         width: calc((100% / 2) - 0.5rem);
       }
       .campaign__card__img .card__sub__img,
-      .campaign__card__info .card__btn > div {
+      .campaign__card__info .card__btn > div,
+      .rewards__details .included__item {
         margin-top: 0.75rem;
       }
       /* --------------------------------------------------------------------------------------- */
@@ -80,57 +94,71 @@
       .campaign__tabs .nav-tabs {
         gap: 0.25rem;
       }
-      .campaign__tabs .nav-link {
-        color: var(--color-gray-500);
-        padding: 0.625rem 0.75rem;
-        border: none;
+      .campaign__tabs .nav-tabs::-webkit-scrollbar {
+        display: none;
       }
-      .campaign__tabs .nav-link.active {
+      .nav-tabs .nav-link {
+        color: var(--color-gray-500);
+        padding: 0.5rem 0.75rem;
+        border: none;
+        margin-bottom: 0;
+      }
+      .nav-tabs .nav-link.active {
         border-radius: var(--border-radius-sm);
         box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.06),
           0px 1px 3px rgba(16, 24, 40, 0.1);
       }
-      .campaign__tabs .nav-link .count {
+      .nav-tabs .nav-link .count {
         border-radius: var(--border-radius-full);
         outline: 1px solid var(--color-gray-200);
         padding: 0.125rem 0.625rem;
       }
-      .campaign__tabs .nav-link.active,
-      .campaign__tabs .nav-link .count {
+      .nav-tabs .nav-link.active,
+      .nav-tabs .nav-link .count {
         color: var(--color-gray-700);
       }
-      .campaign__tabs .nav-tabs .nav-link:hover,
-      .campaign__tabs .nav-link.active {
+      .nav-tabs .nav-link:hover,
+      .nav-tabs .nav-link.active {
         border-color: transparent;
       }
       /* --------------------------------------------------------------------------------------- */
+      .campaign__card,
+      .tab-content .content__wrapper,
+      .faq__tab {
+        row-gap: 2.5rem;
+      }
       .nav-sub-tabs {
         gap: 1rem;
       }
-      .nav-sub-tabs .nav-sub-item .nav-sub-link {
-        color: var(--color-black);
+      .nav-sub-link {
         padding-right: 0.125rem;
         padding-left: 1.125rem;
       }
-      .nav-sub-tabs .nav-sub-link > div {
+      .nav-sub-link > div,
+      .old__price,
+      .rating__sorted,
+      .feedback__time,
+      .user__position {
         color: var(--color-gray-600);
       }
-      .nav-sub-tabs .nav-sub-link .divider-1 {
-        height: 1.25rem;
+      .nav-sub-link.active,
+      .nav-sub-link.active > div,
+      .sale__price {
+        color: var(--color-blue-600);
       }
-      .nav-sub-tabs .nav-sub-link.active::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
+      .nav-sub-link.active::before {
         height: 100%;
         width: 0.25rem;
         background-color: var(--color-blue-600);
       }
-      .card__perk {
-        width: 20.5rem;
+      .card__perk,
+      #rewards-tab-content .rewards__card,
+      .rewards__details .included__item {
         padding: 0.75rem;
         border: 1px solid var(--color-blue-600);
+      }
+      .card__perk {
+        width: 20.5rem;
       }
       .card__perk .perk__included ul {
         padding-left: 1rem;
@@ -139,20 +167,16 @@
       .card__perk .btn.btn-1 {
         margin: 2rem 0 0.75rem;
       }
-      .perk__description p,
-      .perk__included li,
-      .perk__options span {
-        color: var(--color-gray-800);
+
+      .nav-sub-link,
+      .rewards__card h5,
+      .rating__tab h3,
+      .feedback__action {
+        color: var(--color-black);
       }
-      /* tab 1  */
-      #simple-tabpanel-0 h4 {
-        margin-bottom: 1.75rem;
-      }
-      #campaign-tab-content {
-        padding-right: 4rem;
-        padding-left: 5.625rem;
-      }
-      #campaign-tab-content h3 {
+      #campaign-tab-content h3,
+      .rating__sorted,
+      .reply__feedback .reply__info {
         margin-bottom: 0.75rem;
       }
       #campaign-tab-content p {
@@ -162,12 +186,160 @@
         height: 23.5rem;
         margin-bottom: 2.75rem;
       }
+      /* tab 1 */
+      .tab-pane h4 {
+        margin-bottom: 1.75rem;
+      }
+      /* tab 2 */
+      .rewards__card,
+      .rewards__details {
+        gap: 2rem;
+      }
+      #rewards-tab-content .tab-pane > div {
+        gap: 5rem;
+        margin-bottom: 6rem;
+      }
+      .rewards__card {
+        width: 100%;
+      }
+
+      .rewards__card .btn.btn-1 {
+        padding: 0.625rem;
+      }
+      .rewards__details {
+        padding-right: 2.5rem;
+        padding-bottom: 1px;
+        height: 38.625rem;
+      }
+      .rewards__details::-webkit-scrollbar {
+        width: 1rem;
+      }
+
+      .rewards__details::-webkit-scrollbar-thumb {
+        box-shadow: inset 0 0 14px 14px #d9d9d9;
+        border-radius: var(--border-radius-xl);
+        border: solid 4px transparent;
+      }
+      .rewards__details .included__item {
+        gap: 1.625rem;
+      }
+      .rewards__details .included__item .included__item__img {
+        width: 6rem;
+        height: 4rem;
+      }
+      /* rating */
+      .rating {
+        margin-bottom: 4rem;
+      }
+      .rating__tab .rating__feedback .user__img {
+        width: 3.5rem;
+        height: 3.5rem;
+      }
+      .rating__tab .user__img::before {
+        width: 100%;
+        height: 100%;
+        border: 0.75px solid var(--color-black);
+        opacity: 0.08;
+        border-radius: 99rem;
+      }
+      .rating__feedback .star {
+        margin: 0.75rem 0;
+      }
+      .feedback__action .like__action,
+      .feedback__action .dislike__action {
+        width: 1.25rem;
+        height: 1.25rem;
+      }
+      .feedback__action .divider-1 {
+        margin: 0 0.5rem;
+      }
+      .feedback__img {
+        gap: 1.25rem;
+      }
+      .feedback__img > * {
+        width: 12.5rem;
+        height: 12.5rem;
+      }
+      .feedback__content,
+      .rating__sorted {
+        gap: 0.75rem;
+      }
+      .rating__sorted .sorted__img {
+        width: 1.5rem;
+        height: 1.5rem;
+        padding: 0.125rem;
+      }
+      .rating__tab .star > * {
+        width: 2rem;
+        height: 2rem;
+        padding: 0.25rem;
+      }
+      .rating__tab .rating__feedback .user__img,
+      .rating__overall .score,
+      .feedback__action .feedback__time {
+        margin-right: 0.75rem;
+      }
+      .rating__overall .score > span:not(:first-child) {
+        top: 3px;
+      }
+      .rating__tab .reply__feedback .user__img {
+        width: 2rem;
+        height: 2rem;
+      }
+      .reply__content {
+        padding-left: 2.5rem;
+      }
+      .reply__content::before {
+        left: 15px;
+        width: 0.125rem;
+        height: 100%;
+        background-color: var(--color-text-icon-placeholder);
+      }
+      /* tab 4  */
+      .faq__tab {
+        column-gap: 6rem;
+      }
+      .faq__item {
+        max-width: 40rem;
+        border: 1px solid var(--color-gray-800);
+        background-color: var(--color-white);
+      }
+      .faq__item .item__title {
+        padding: 0.375rem 0;
+      }
+      .faq__item .item__svg {
+        width: 2.25rem;
+        height: 2.25rem;
+      }
       /* --------------------------------------------------------------------------------------- */
       /* --------------------------------------------------------------------------------------- */
       /* --------------------------------------------------------------------------------------- */
+      @media only screen and (min-width: 768px) {
+        #campaign-tab-content {
+          padding-left: 5.625rem;
+        }
+
+        .rewards__card {
+          width: 18rem;
+        }
+      }
+      @media only screen and (min-width: 992px) {
+        .rewards__card {
+          width: 25.5rem;
+        }
+        .rating__tab .sorted {
+          padding-left: 4.75rem;
+        }
+      }
       @media only screen and (min-width: 1200px) {
         .campaign__card__img {
           width: 39rem;
+        }
+        #campaign-tab-content {
+          padding-right: 4rem;
+        }
+        #rewards-tab-content {
+          padding-left: 2.5rem;
         }
       }
     </style>
@@ -188,7 +360,7 @@
           <div class="card__sub__img slider">
             <div class="slider-wrapper">
               <div class="slide-item">
-                <div class="border-sm overflow-hidden">
+                <div class="border-sm overflow-hidden cursor-pointer">
                   <img
                     class="w-100 h-100 object-fit-cover"
                     src="../../assets/images/campaign/1.png"
@@ -197,7 +369,7 @@
                 </div>
               </div>
               <div class="slide-item">
-                <div class="border-sm overflow-hidden">
+                <div class="border-sm overflow-hidden cursor-pointer">
                   <img
                     class="w-100 h-100 object-fit-cover"
                     src="../../assets/images/campaign/2.png"
@@ -206,7 +378,7 @@
                 </div>
               </div>
               <div class="slide-item">
-                <div class="border-sm overflow-hidden">
+                <div class="border-sm overflow-hidden cursor-pointer">
                   <img
                     class="w-100 h-100 object-fit-cover"
                     src="../../assets/images/campaign/3.png"
@@ -215,7 +387,7 @@
                 </div>
               </div>
               <div class="slide-item">
-                <div class="border-sm overflow-hidden">
+                <div class="border-sm overflow-hidden cursor-pointer">
                   <img
                     class="w-100 h-100 object-fit-cover"
                     src="../../assets/images/campaign/4.png"
@@ -224,7 +396,7 @@
                 </div>
               </div>
               <div class="slide-item">
-                <div class="border-sm overflow-hidden">
+                <div class="border-sm overflow-hidden cursor-pointer">
                   <img
                     class="w-100 h-100 object-fit-cover"
                     src="../../assets/images/campaign/1.png"
@@ -233,7 +405,7 @@
                 </div>
               </div>
               <div class="slide-item">
-                <div class="border-sm overflow-hidden">
+                <div class="border-sm overflow-hidden cursor-pointer">
                   <img
                     class="w-100 h-100 object-fit-cover"
                     src="../../assets/images/campaign/2.png"
@@ -242,7 +414,7 @@
                 </div>
               </div>
               <div class="slide-item">
-                <div class="border-sm overflow-hidden">
+                <div class="border-sm overflow-hidden cursor-pointer">
                   <img
                     class="w-100 h-100 object-fit-cover"
                     src="../../assets/images/campaign/3.png"
@@ -251,7 +423,7 @@
                 </div>
               </div>
               <div class="slide-item">
-                <div class="border-sm overflow-hidden">
+                <div class="border-sm overflow-hidden cursor-pointer">
                   <img
                     class="w-100 h-100 object-fit-cover"
                     src="../../assets/images/campaign/4.png"
@@ -384,7 +556,7 @@
       <section class="campaign__main">
         <div class="campaign__tabs border-xl">
           <ul
-            class="nav nav-tabs border-bottom-0 fw-semibold lh-base"
+            class="nav nav-tabs border-bottom-0 fw-semibold lh-base flex-nowrap overflow-auto pb-1"
             role="tablist"
           >
             <li class="nav-item" role="presentation">
@@ -426,11 +598,11 @@
             <li class="nav-item" role="presentation">
               <a
                 class="nav-link text-uppercase"
-                id="simple-tab-2"
+                id="simple-tab-3"
                 data-bs-toggle="tab"
-                href="#simple-tabpanel-2"
+                href="#simple-tabpanel-3"
                 role="tab"
-                aria-controls="simple-tabpanel-2"
+                aria-controls="simple-tabpanel-3"
                 aria-selected="false"
                 >FAQ</a
               >
@@ -438,11 +610,11 @@
             <li class="nav-item" role="presentation">
               <a
                 class="nav-link d-flex justify-content-between align-items-center"
-                id="simple-tab-2"
+                id="simple-tab-4"
                 data-bs-toggle="tab"
-                href="#simple-tabpanel-2"
+                href="#simple-tabpanel-4"
                 role="tab"
-                aria-controls="simple-tabpanel-2"
+                aria-controls="simple-tabpanel-4"
                 aria-selected="false"
                 ><span class="text-uppercase"> UPDATES </span
                 ><span class="count ms-2 fs-small fw-medium lh-1-3">2</span></a
@@ -451,11 +623,11 @@
             <li class="nav-item" role="presentation">
               <a
                 class="nav-link d-flex justify-content-between align-items-center"
-                id="simple-tab-2"
+                id="simple-tab-5"
                 data-bs-toggle="tab"
-                href="#simple-tabpanel-2"
+                href="#simple-tabpanel-5"
                 role="tab"
-                aria-controls="simple-tabpanel-2"
+                aria-controls="simple-tabpanel-5"
                 aria-selected="false"
                 ><span class="text-uppercase">COMMENTS</span
                 ><span class="count ms-2 fs-small fw-medium lh-1-3">2</span></a
@@ -464,11 +636,11 @@
             <li class="nav-item" role="presentation">
               <a
                 class="nav-link text-uppercase"
-                id="simple-tab-2"
+                id="simple-tab-6"
                 data-bs-toggle="tab"
-                href="#simple-tabpanel-2"
+                href="#simple-tabpanel-6"
                 role="tab"
-                aria-controls="simple-tabpanel-2"
+                aria-controls="simple-tabpanel-6"
                 aria-selected="false"
                 >COMMUNITY</a
               >
@@ -483,7 +655,9 @@
             role="tabpanel"
             aria-labelledby="simple-tab-0"
           >
-            <div class="d-flex align-items-baseline">
+            <div
+              class="content__wrapper d-flex flex-wrap flex-md-nowrap align-items-start"
+            >
               <!-- nav  -->
               <div class="flex-shrink-0">
                 <h4 class="fs-2xl fw-bold lh-1-3">Available rewards</h4>
@@ -661,7 +835,9 @@
                 </div>
               </div>
               <!-- perk card  -->
-              <div class="card__perk border-xl lh-base flex-shrink-0">
+              <div
+                class="d-none d-xl-block card__perk border-xl lh-base flex-shrink-0"
+              >
                 <h5 class="fs-5 fw-semibold text-uppercase mb-4">
                   CHOOSE YOUR PERKS
                 </h5>
@@ -707,7 +883,960 @@
             role="tabpanel"
             aria-labelledby="simple-tab-1"
           >
-            Tab 2 selected
+            <div
+              class="content__wrapper d-flex flex-wrap flex-xl-nowrap align-items-start"
+            >
+              <!-- nav  -->
+              <div class="flex-shrink-0">
+                <h4 class="fs-2xl fw-bold lh-1-3">Available rewards</h4>
+                <ul class="nav nav-sub-tabs flex-column lh-base" role="tablist">
+                  <li class="nav-sub-item" role="presentation">
+                    <a
+                      class="nav-sub-link active d-block position-relative"
+                      id="rewards-tab-0"
+                      data-bs-toggle="tab"
+                      href="#rewards-tabpanel-0"
+                      role="tab"
+                      aria-controls="rewards-tabpanel-0"
+                      aria-selected="true"
+                    >
+                      <span class="fw-semibold d-inline-block mb-1"
+                        >SpyraGravity J4F Edition</span
+                      >
+                      <div class="d-flex align-items-center fs-small fw-normal">
+                        <span class="me-2">$ 74</span>
+                        <!-- <span class="divider-1"></span> -->
+                        <span>2 items included</span>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="nav-sub-item" role="presentation">
+                    <a
+                      class="nav-sub-link d-block position-relative"
+                      id="rewards-tab-1"
+                      data-bs-toggle="tab"
+                      href="#rewards-tabpanel-1"
+                      role="tab"
+                      aria-controls="rewards-tabpanel-1"
+                      aria-selected="true"
+                    >
+                      <span class="fw-semibold d-inline-block mb-1"
+                        >SpyraGravity</span
+                      >
+                      <div class="d-flex align-items-center fs-small fw-normal">
+                        <span class="me-2">$ 74</span>
+                        <!-- <span class="divider-1"></span> -->
+                        <span>2 items included</span>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="nav-sub-item" role="presentation">
+                    <a
+                      class="nav-sub-link d-block position-relative"
+                      id="rewards-tab-2"
+                      data-bs-toggle="tab"
+                      href="#rewards-tabpanel-2"
+                      role="tab"
+                      aria-controls="rewards-tabpanel-2"
+                      aria-selected="true"
+                    >
+                      <span class="fw-semibold d-inline-block mb-1"
+                        >SpyraGravity Ultimate</span
+                      >
+                      <div class="d-flex align-items-center fs-small fw-normal">
+                        <span class="me-2">$ 9999</span>
+                        <!-- <span class="divider-1"></span> -->
+                        <span>99 items included</span>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <!-- tab  -->
+              <div
+                class="tab-content rewards-tab-content"
+                id="rewards-tab-content"
+              >
+                <div
+                  class="tab-pane fade show active"
+                  id="rewards-tabpanel-0"
+                  role="tabpanel"
+                  aria-labelledby="rewards-tab-0"
+                >
+                  <div class="d-flex flex-column flex-md-row">
+                    <div
+                      class="rewards__card d-flex flex-column border-sm lh-base flex-shrink-0"
+                    >
+                      <img
+                        class="w-100 h-100 object-fit-cover"
+                        src="../../assets/images/campaign/7.png"
+                        alt="7"
+                      />
+                      <div class="d-flex justify-content-between">
+                        <h5 class="fs-5 fw-semibold mb-0">
+                          SpyraGravity J4F Edition
+                        </h5>
+                        <span class="card__price fw-semibold flex-shrink-0"
+                          ><span class="new__price fs-medium d-block mb-1"
+                            >$74 USD</span
+                          >
+                          <span
+                            class="old__price fw-medium text-decoration-line-through d-block"
+                            >$83 USD</span
+                          >
+                          <span class="sale__price d-block">(32% OFF)</span>
+                        </span>
+                      </div>
+                      <div>
+                        <div class="d-flex justify-content-between mb-4">
+                          <span>
+                            <span class="d-block fw-semibold mb-1"
+                              >Shipping</span
+                            >
+                            <span class="d-block fs-small fw-normal"
+                              >Worldwide</span
+                            >
+                          </span>
+                          <span class="fs-small">
+                            <span class="d-block fw-semibold mb-1"
+                              >Estimated delivery</span
+                            >
+                            <span class="d-block fw-normal"
+                              >September 2024</span
+                            >
+                          </span>
+                        </div>
+                        <div class="fs-small">
+                          <span class="d-block fw-semibold">Remaining</span>
+                          <span class="fw-normal">26</span>
+                        </div>
+                      </div>
+                      <button class="btn btn-1 w-100 text-uppercase">
+                        get this perk
+                      </button>
+                    </div>
+                    <div
+                      class="rewards__details fs-medium fw-semibold lh-base d-flex flex-column overflow-auto"
+                    >
+                      <p class="mb-0">
+                        Limited Edition SpyraGravity - Only 1500 Available! 32%
+                        off RRP with free shipping to the EU, US and UK. Lowest
+                        price ever, guaranteed.
+                      </p>
+                      <div>
+                        <span>2 items included</span>
+                        <div
+                          class="included__item d-flex justify-content-between border-xl"
+                        >
+                          <div class="included__item__label">
+                            <span class="d-block mb-2"
+                              >SpyraGravity J4F Edition</span
+                            >
+                            <span class="d-block fs-6 fw-normal"
+                              >Quantity: 1</span
+                            >
+                          </div>
+                          <div class="included__item__img">
+                            <img
+                              src="../../assets/images/campaign/7.png"
+                              alt="8"
+                            />
+                          </div>
+                        </div>
+                        <div
+                          class="included__item d-flex justify-content-between border-xl"
+                        >
+                          <div class="included__item__label">
+                            <span class="d-block mb-2"
+                              >SpyraGravity J4F Edition</span
+                            >
+                            <span class="d-block fs-6 fw-normal"
+                              >Quantity: 1</span
+                            >
+                          </div>
+                          <div class="included__item__img">
+                            <img
+                              src="../../assets/images/campaign/7.png"
+                              alt="8"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                        <span>Optional add-ons</span>
+                        <div
+                          class="included__item d-flex justify-content-between border-xl"
+                        >
+                          <div class="included__item__label">
+                            <span class="d-block mb-2">SpyraBase</span>
+                            <span class="d-block fs-6 fw-normal">+ $27</span>
+                          </div>
+                          <div class="included__item__img">
+                            <img
+                              src="../../assets/images/campaign/7.png"
+                              alt="8"
+                            />
+                          </div>
+                        </div>
+                        <div
+                          class="included__item d-flex justify-content-between border-xl"
+                        >
+                          <div class="included__item__label">
+                            <span class="d-block mb-2">SpyraBase</span>
+                            <span class="d-block fs-6 fw-normal">+ $9</span>
+                          </div>
+                          <div class="included__item__img">
+                            <img
+                              src="../../assets/images/campaign/7.png"
+                              alt="8"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                        <span>2 items included</span>
+                        <div
+                          class="included__item d-flex justify-content-between border-xl"
+                        >
+                          <div class="included__item__label">
+                            <span class="d-block mb-2"
+                              >SpyraGravity J4F Edition</span
+                            >
+                            <span class="d-block fs-6 fw-normal"
+                              >Quantity: 1</span
+                            >
+                          </div>
+                          <div class="included__item__img">
+                            <img
+                              src="../../assets/images/campaign/7.png"
+                              alt="8"
+                            />
+                          </div>
+                        </div>
+                        <div
+                          class="included__item d-flex justify-content-between border-xl"
+                        >
+                          <div class="included__item__label">
+                            <span class="d-block mb-2"
+                              >SpyraGravity J4F Edition</span
+                            >
+                            <span class="d-block fs-6 fw-normal"
+                              >Quantity: 1</span
+                            >
+                          </div>
+                          <div class="included__item__img">
+                            <img
+                              src="../../assets/images/campaign/7.png"
+                              alt="8"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-column flex-md-row">
+                    <div
+                      class="rewards__card d-flex flex-column border-sm lh-base flex-shrink-0"
+                    >
+                      <img
+                        class="w-100 h-100 object-fit-cover"
+                        src="../../assets/images/campaign/7.png"
+                        alt="7"
+                      />
+                      <div class="d-flex justify-content-between">
+                        <h5 class="fs-5 fw-semibold mb-0">
+                          SpyraGravity J4F Edition
+                        </h5>
+                        <span class="card__price fw-semibold flex-shrink-0"
+                          ><span class="new__price fs-medium d-block mb-1"
+                            >$74 USD</span
+                          >
+                          <span
+                            class="old__price fw-medium text-decoration-line-through d-block"
+                            >$83 USD</span
+                          >
+                          <span class="sale__price d-block">(32% OFF)</span>
+                        </span>
+                      </div>
+                      <div>
+                        <div class="d-flex justify-content-between mb-4">
+                          <span>
+                            <span class="d-block fw-semibold mb-1"
+                              >Shipping</span
+                            >
+                            <span class="d-block fs-small fw-normal"
+                              >Worldwide</span
+                            >
+                          </span>
+                          <span class="fs-small">
+                            <span class="d-block fw-semibold mb-1"
+                              >Estimated delivery</span
+                            >
+                            <span class="d-block fw-normal"
+                              >September 2024</span
+                            >
+                          </span>
+                        </div>
+                        <div class="fs-small">
+                          <span class="d-block fw-semibold">Remaining</span>
+                          <span class="fw-normal">26</span>
+                        </div>
+                      </div>
+                      <button class="btn btn-1 w-100 text-uppercase">
+                        get this perk
+                      </button>
+                    </div>
+                    <div
+                      class="rewards__details fs-medium fw-semibold lh-base d-flex flex-column overflow-auto"
+                    >
+                      <p class="mb-0">
+                        Limited Edition SpyraGravity - Only 1500 Available! 32%
+                        off RRP with free shipping to the EU, US and UK. Lowest
+                        price ever, guaranteed.
+                      </p>
+                      <div>
+                        <span>2 items included</span>
+                        <div
+                          class="included__item d-flex justify-content-between border-xl"
+                        >
+                          <div class="included__item__label">
+                            <span class="d-block mb-2"
+                              >SpyraGravity J4F Edition</span
+                            >
+                            <span class="d-block fs-6 fw-normal"
+                              >Quantity: 1</span
+                            >
+                          </div>
+                          <div class="included__item__img">
+                            <img
+                              src="../../assets/images/campaign/7.png"
+                              alt="8"
+                            />
+                          </div>
+                        </div>
+                        <div
+                          class="included__item d-flex justify-content-between border-xl"
+                        >
+                          <div class="included__item__label">
+                            <span class="d-block mb-2"
+                              >SpyraGravity J4F Edition</span
+                            >
+                            <span class="d-block fs-6 fw-normal"
+                              >Quantity: 1</span
+                            >
+                          </div>
+                          <div class="included__item__img">
+                            <img
+                              src="../../assets/images/campaign/7.png"
+                              alt="8"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                        <span>Optional add-ons</span>
+                        <div
+                          class="included__item d-flex justify-content-between border-xl"
+                        >
+                          <div class="included__item__label">
+                            <span class="d-block mb-2">SpyraBase</span>
+                            <span class="d-block fs-6 fw-normal">+ $27</span>
+                          </div>
+                          <div class="included__item__img">
+                            <img
+                              src="../../assets/images/campaign/7.png"
+                              alt="8"
+                            />
+                          </div>
+                        </div>
+                        <div
+                          class="included__item d-flex justify-content-between border-xl"
+                        >
+                          <div class="included__item__label">
+                            <span class="d-block mb-2">SpyraBase</span>
+                            <span class="d-block fs-6 fw-normal">+ $9</span>
+                          </div>
+                          <div class="included__item__img">
+                            <img
+                              src="../../assets/images/campaign/7.png"
+                              alt="8"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                        <span>2 items included</span>
+                        <div
+                          class="included__item d-flex justify-content-between border-xl"
+                        >
+                          <div class="included__item__label">
+                            <span class="d-block mb-2"
+                              >SpyraGravity J4F Edition</span
+                            >
+                            <span class="d-block fs-6 fw-normal"
+                              >Quantity: 1</span
+                            >
+                          </div>
+                          <div class="included__item__img">
+                            <img
+                              src="../../assets/images/campaign/7.png"
+                              alt="8"
+                            />
+                          </div>
+                        </div>
+                        <div
+                          class="included__item d-flex justify-content-between border-xl"
+                        >
+                          <div class="included__item__label">
+                            <span class="d-block mb-2"
+                              >SpyraGravity J4F Edition</span
+                            >
+                            <span class="d-block fs-6 fw-normal"
+                              >Quantity: 1</span
+                            >
+                          </div>
+                          <div class="included__item__img">
+                            <img
+                              src="../../assets/images/campaign/7.png"
+                              alt="8"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-column flex-md-row">
+                    <div
+                      class="rewards__card d-flex flex-column border-sm lh-base flex-shrink-0"
+                    >
+                      <img
+                        class="w-100 h-100 object-fit-cover"
+                        src="../../assets/images/campaign/7.png"
+                        alt="7"
+                      />
+                      <div class="d-flex justify-content-between">
+                        <h5 class="fs-5 fw-semibold mb-0">
+                          SpyraGravity J4F Edition
+                        </h5>
+                        <span class="card__price fw-semibold flex-shrink-0"
+                          ><span class="new__price fs-medium d-block mb-1"
+                            >$74 USD</span
+                          >
+                          <span
+                            class="old__price fw-medium text-decoration-line-through d-block"
+                            >$83 USD</span
+                          >
+                          <span class="sale__price d-block">(32% OFF)</span>
+                        </span>
+                      </div>
+                      <div>
+                        <div class="d-flex justify-content-between mb-4">
+                          <span>
+                            <span class="d-block fw-semibold mb-1"
+                              >Shipping</span
+                            >
+                            <span class="d-block fs-small fw-normal"
+                              >Worldwide</span
+                            >
+                          </span>
+                          <span class="fs-small">
+                            <span class="d-block fw-semibold mb-1"
+                              >Estimated delivery</span
+                            >
+                            <span class="d-block fw-normal"
+                              >September 2024</span
+                            >
+                          </span>
+                        </div>
+                        <div class="fs-small">
+                          <span class="d-block fw-semibold">Remaining</span>
+                          <span class="fw-normal">26</span>
+                        </div>
+                      </div>
+                      <button class="btn btn-1 w-100 text-uppercase">
+                        get this perk
+                      </button>
+                    </div>
+                    <div
+                      class="rewards__details fs-medium fw-semibold lh-base d-flex flex-column overflow-auto"
+                    >
+                      <p class="mb-0">
+                        Limited Edition SpyraGravity - Only 1500 Available! 32%
+                        off RRP with free shipping to the EU, US and UK. Lowest
+                        price ever, guaranteed.
+                      </p>
+                      <div>
+                        <span>2 items included</span>
+                        <div
+                          class="included__item d-flex justify-content-between border-xl"
+                        >
+                          <div class="included__item__label">
+                            <span class="d-block mb-2"
+                              >SpyraGravity J4F Edition</span
+                            >
+                            <span class="d-block fs-6 fw-normal"
+                              >Quantity: 1</span
+                            >
+                          </div>
+                          <div class="included__item__img">
+                            <img
+                              src="../../assets/images/campaign/7.png"
+                              alt="8"
+                            />
+                          </div>
+                        </div>
+                        <div
+                          class="included__item d-flex justify-content-between border-xl"
+                        >
+                          <div class="included__item__label">
+                            <span class="d-block mb-2"
+                              >SpyraGravity J4F Edition</span
+                            >
+                            <span class="d-block fs-6 fw-normal"
+                              >Quantity: 1</span
+                            >
+                          </div>
+                          <div class="included__item__img">
+                            <img
+                              src="../../assets/images/campaign/7.png"
+                              alt="8"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                        <span>Optional add-ons</span>
+                        <div
+                          class="included__item d-flex justify-content-between border-xl"
+                        >
+                          <div class="included__item__label">
+                            <span class="d-block mb-2">SpyraBase</span>
+                            <span class="d-block fs-6 fw-normal">+ $27</span>
+                          </div>
+                          <div class="included__item__img">
+                            <img
+                              src="../../assets/images/campaign/7.png"
+                              alt="8"
+                            />
+                          </div>
+                        </div>
+                        <div
+                          class="included__item d-flex justify-content-between border-xl"
+                        >
+                          <div class="included__item__label">
+                            <span class="d-block mb-2">SpyraBase</span>
+                            <span class="d-block fs-6 fw-normal">+ $9</span>
+                          </div>
+                          <div class="included__item__img">
+                            <img
+                              src="../../assets/images/campaign/7.png"
+                              alt="8"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                        <span>2 items included</span>
+                        <div
+                          class="included__item d-flex justify-content-between border-xl"
+                        >
+                          <div class="included__item__label">
+                            <span class="d-block mb-2"
+                              >SpyraGravity J4F Edition</span
+                            >
+                            <span class="d-block fs-6 fw-normal"
+                              >Quantity: 1</span
+                            >
+                          </div>
+                          <div class="included__item__img">
+                            <img
+                              src="../../assets/images/campaign/7.png"
+                              alt="8"
+                            />
+                          </div>
+                        </div>
+                        <div
+                          class="included__item d-flex justify-content-between border-xl"
+                        >
+                          <div class="included__item__label">
+                            <span class="d-block mb-2"
+                              >SpyraGravity J4F Edition</span
+                            >
+                            <span class="d-block fs-6 fw-normal"
+                              >Quantity: 1</span
+                            >
+                          </div>
+                          <div class="included__item__img">
+                            <img
+                              src="../../assets/images/campaign/7.png"
+                              alt="8"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="tab-pane fade show"
+                  id="rewards-tabpanel-1"
+                  role="tabpanel"
+                  aria-labelledby="rewards-tab-1"
+                >
+                  <div class="d-flex flex-column flex-md-row">
+                    <div
+                      class="rewards__card d-flex flex-column border-sm lh-base flex-shrink-0"
+                    >
+                      <img
+                        class="w-100 h-100 object-fit-cover"
+                        src="../../assets/images/campaign/7.png"
+                        alt="7"
+                      />
+                      <div class="d-flex justify-content-between">
+                        <h5 class="fs-5 fw-semibold mb-0">
+                          SpyraGravity J4F Edition
+                        </h5>
+                        <span class="card__price fw-semibold flex-shrink-0"
+                          ><span class="new__price fs-medium d-block mb-1"
+                            >$74 USD</span
+                          >
+                          <span
+                            class="old__price fw-medium text-decoration-line-through d-block"
+                            >$83 USD</span
+                          >
+                          <span class="sale__price d-block">(32% OFF)</span>
+                        </span>
+                      </div>
+                      <div>
+                        <div class="d-flex justify-content-between mb-4">
+                          <span>
+                            <span class="d-block fw-semibold mb-1"
+                              >Shipping</span
+                            >
+                            <span class="d-block fs-small fw-normal"
+                              >Worldwide</span
+                            >
+                          </span>
+                          <span class="fs-small">
+                            <span class="d-block fw-semibold mb-1"
+                              >Estimated delivery</span
+                            >
+                            <span class="d-block fw-normal"
+                              >September 2024</span
+                            >
+                          </span>
+                        </div>
+                        <div class="fs-small">
+                          <span class="d-block fw-semibold">Remaining</span>
+                          <span class="fw-normal">26</span>
+                        </div>
+                      </div>
+                      <button class="btn btn-1 w-100 text-uppercase">
+                        get this perk
+                      </button>
+                    </div>
+                    <div
+                      class="rewards__details fs-medium fw-semibold lh-base d-flex flex-column overflow-auto"
+                    >
+                      <p class="mb-0">
+                        Limited Edition SpyraGravity - Only 1500 Available! 32%
+                        off RRP with free shipping to the EU, US and UK. Lowest
+                        price ever, guaranteed.
+                      </p>
+                      <div>
+                        <span>2 items included</span>
+                        <div
+                          class="included__item d-flex justify-content-between border-xl"
+                        >
+                          <div class="included__item__label">
+                            <span class="d-block mb-2"
+                              >SpyraGravity J4F Edition</span
+                            >
+                            <span class="d-block fs-6 fw-normal"
+                              >Quantity: 1</span
+                            >
+                          </div>
+                          <div class="included__item__img">
+                            <img
+                              src="../../assets/images/campaign/7.png"
+                              alt="8"
+                            />
+                          </div>
+                        </div>
+                        <div
+                          class="included__item d-flex justify-content-between border-xl"
+                        >
+                          <div class="included__item__label">
+                            <span class="d-block mb-2"
+                              >SpyraGravity J4F Edition</span
+                            >
+                            <span class="d-block fs-6 fw-normal"
+                              >Quantity: 1</span
+                            >
+                          </div>
+                          <div class="included__item__img">
+                            <img
+                              src="../../assets/images/campaign/7.png"
+                              alt="8"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                        <span>Optional add-ons</span>
+                        <div
+                          class="included__item d-flex justify-content-between border-xl"
+                        >
+                          <div class="included__item__label">
+                            <span class="d-block mb-2">SpyraBase</span>
+                            <span class="d-block fs-6 fw-normal">+ $27</span>
+                          </div>
+                          <div class="included__item__img">
+                            <img
+                              src="../../assets/images/campaign/7.png"
+                              alt="8"
+                            />
+                          </div>
+                        </div>
+                        <div
+                          class="included__item d-flex justify-content-between border-xl"
+                        >
+                          <div class="included__item__label">
+                            <span class="d-block mb-2">SpyraBase</span>
+                            <span class="d-block fs-6 fw-normal">+ $9</span>
+                          </div>
+                          <div class="included__item__img">
+                            <img
+                              src="../../assets/images/campaign/7.png"
+                              alt="8"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                        <span>2 items included</span>
+                        <div
+                          class="included__item d-flex justify-content-between border-xl"
+                        >
+                          <div class="included__item__label">
+                            <span class="d-block mb-2"
+                              >SpyraGravity J4F Edition</span
+                            >
+                            <span class="d-block fs-6 fw-normal"
+                              >Quantity: 1</span
+                            >
+                          </div>
+                          <div class="included__item__img">
+                            <img
+                              src="../../assets/images/campaign/7.png"
+                              alt="8"
+                            />
+                          </div>
+                        </div>
+                        <div
+                          class="included__item d-flex justify-content-between border-xl"
+                        >
+                          <div class="included__item__label">
+                            <span class="d-block mb-2"
+                              >SpyraGravity J4F Edition</span
+                            >
+                            <span class="d-block fs-6 fw-normal"
+                              >Quantity: 1</span
+                            >
+                          </div>
+                          <div class="included__item__img">
+                            <img
+                              src="../../assets/images/campaign/7.png"
+                              alt="8"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="tab-pane fade show"
+                  id="rewards-tabpanel-2"
+                  role="tabpanel"
+                  aria-labelledby="rewards-tab-2"
+                >
+                  <div class="d-flex flex-column flex-md-row">
+                    <div
+                      class="rewards__card d-flex flex-column border-sm lh-base flex-shrink-0"
+                    >
+                      <img
+                        class="w-100 h-100 object-fit-cover"
+                        src="../../assets/images/campaign/7.png"
+                        alt="7"
+                      />
+                      <div class="d-flex justify-content-between">
+                        <h5 class="fs-5 fw-semibold mb-0">
+                          SpyraGravity J4F Edition
+                        </h5>
+                        <span class="card__price fw-semibold flex-shrink-0"
+                          ><span class="new__price fs-medium d-block mb-1"
+                            >$74 USD</span
+                          >
+                          <span
+                            class="old__price fw-medium text-decoration-line-through d-block"
+                            >$83 USD</span
+                          >
+                          <span class="sale__price d-block">(32% OFF)</span>
+                        </span>
+                      </div>
+                      <div>
+                        <div class="d-flex justify-content-between mb-4">
+                          <span>
+                            <span class="d-block fw-semibold mb-1"
+                              >Shipping</span
+                            >
+                            <span class="d-block fs-small fw-normal"
+                              >Worldwide</span
+                            >
+                          </span>
+                          <span class="fs-small">
+                            <span class="d-block fw-semibold mb-1"
+                              >Estimated delivery</span
+                            >
+                            <span class="d-block fw-normal"
+                              >September 2024</span
+                            >
+                          </span>
+                        </div>
+                        <div class="fs-small">
+                          <span class="d-block fw-semibold">Remaining</span>
+                          <span class="fw-normal">26</span>
+                        </div>
+                      </div>
+                      <button class="btn btn-1 w-100 text-uppercase">
+                        get this perk
+                      </button>
+                    </div>
+                    <div
+                      class="rewards__details fs-medium fw-semibold lh-base d-flex flex-column overflow-auto"
+                    >
+                      <p class="mb-0">
+                        Limited Edition SpyraGravity - Only 1500 Available! 32%
+                        off RRP with free shipping to the EU, US and UK. Lowest
+                        price ever, guaranteed.
+                      </p>
+                      <div>
+                        <span>2 items included</span>
+                        <div
+                          class="included__item d-flex justify-content-between border-xl"
+                        >
+                          <div class="included__item__label">
+                            <span class="d-block mb-2"
+                              >SpyraGravity J4F Edition</span
+                            >
+                            <span class="d-block fs-6 fw-normal"
+                              >Quantity: 1</span
+                            >
+                          </div>
+                          <div class="included__item__img">
+                            <img
+                              src="../../assets/images/campaign/7.png"
+                              alt="8"
+                            />
+                          </div>
+                        </div>
+                        <div
+                          class="included__item d-flex justify-content-between border-xl"
+                        >
+                          <div class="included__item__label">
+                            <span class="d-block mb-2"
+                              >SpyraGravity J4F Edition</span
+                            >
+                            <span class="d-block fs-6 fw-normal"
+                              >Quantity: 1</span
+                            >
+                          </div>
+                          <div class="included__item__img">
+                            <img
+                              src="../../assets/images/campaign/7.png"
+                              alt="8"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                        <span>Optional add-ons</span>
+                        <div
+                          class="included__item d-flex justify-content-between border-xl"
+                        >
+                          <div class="included__item__label">
+                            <span class="d-block mb-2">SpyraBase</span>
+                            <span class="d-block fs-6 fw-normal">+ $27</span>
+                          </div>
+                          <div class="included__item__img">
+                            <img
+                              src="../../assets/images/campaign/7.png"
+                              alt="8"
+                            />
+                          </div>
+                        </div>
+                        <div
+                          class="included__item d-flex justify-content-between border-xl"
+                        >
+                          <div class="included__item__label">
+                            <span class="d-block mb-2">SpyraBase</span>
+                            <span class="d-block fs-6 fw-normal">+ $9</span>
+                          </div>
+                          <div class="included__item__img">
+                            <img
+                              src="../../assets/images/campaign/7.png"
+                              alt="8"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                        <span>2 items included</span>
+                        <div
+                          class="included__item d-flex justify-content-between border-xl"
+                        >
+                          <div class="included__item__label">
+                            <span class="d-block mb-2"
+                              >SpyraGravity J4F Edition</span
+                            >
+                            <span class="d-block fs-6 fw-normal"
+                              >Quantity: 1</span
+                            >
+                          </div>
+                          <div class="included__item__img">
+                            <img
+                              src="../../assets/images/campaign/7.png"
+                              alt="8"
+                            />
+                          </div>
+                        </div>
+                        <div
+                          class="included__item d-flex justify-content-between border-xl"
+                        >
+                          <div class="included__item__label">
+                            <span class="d-block mb-2"
+                              >SpyraGravity J4F Edition</span
+                            >
+                            <span class="d-block fs-6 fw-normal"
+                              >Quantity: 1</span
+                            >
+                          </div>
+                          <div class="included__item__img">
+                            <img
+                              src="../../assets/images/campaign/7.png"
+                              alt="8"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           <!-- main tab 3  -->
@@ -717,7 +1846,1251 @@
             role="tabpanel"
             aria-labelledby="simple-tab-2"
           >
-            Tab 3 selected
+            <div class="rating__tab">
+              <h3 class="fs--4xl fw-semibold lh-sm mb-5">
+                What Our Backers Thought About Us?
+              </h3>
+              <div class="row">
+                <div class="col-12 col-md-8">
+                  <div class="lh-base">
+                    <div class="rating">
+                      <div class="rating__feedback">
+                        <div class="feedback__info d-flex align-items-start">
+                          <div
+                            class="user__img position-relative flex-shrink-0"
+                          >
+                            <img
+                              class="rounded-circle w-100 h-100 object-fit-cover"
+                              src="../../assets/images/users/user-1.png"
+                              alt="user"
+                            />
+                          </div>
+                          <div
+                            class="d-flex flex-wrap justify-content-between align-items-baseline w-100"
+                          >
+                            <div>
+                              <div class="fw-semibold mb-1">
+                                <span class="fs-medium">Username</span>
+                                <span
+                                  class="user__position fs-xs text-uppercase ms-4"
+                                  >BACKER</span
+                                >
+                              </div>
+                              <span class="fw-normal">Location</span>
+                            </div>
+                            <span class="fw-normal">MM / DD / YY</span>
+                          </div>
+                        </div>
+                        <div class="star d-flex align-items-center">
+                          <span
+                            ><img
+                              class="w-100 h-100 object-fit-cover"
+                              src="../../assets/images/icons/Star 3.png"
+                              alt="star"
+                          /></span>
+                          <span
+                            ><img
+                              class="w-100 h-100 object-fit-cover"
+                              src="../../assets/images/icons/Star 3.png"
+                              alt="star"
+                          /></span>
+                          <span
+                            ><img
+                              class="w-100 h-100 object-fit-cover"
+                              src="../../assets/images/icons/Star 3.png"
+                              alt="star"
+                          /></span>
+                          <span
+                            ><img
+                              class="w-100 h-100 object-fit-cover"
+                              src="../../assets/images/icons/Star 3.png"
+                              alt="star"
+                          /></span>
+                          <span
+                            ><img
+                              class="w-100 h-100 object-fit-cover"
+                              src="../../assets/images/icons/Star 3.png"
+                              alt="star"
+                          /></span>
+                        </div>
+                        <div class="feedback__content d-flex flex-column">
+                          <h5 class="fs-medium fw-semibold mb-0">Headline</h5>
+                          <p class="fw-normal mb-0">
+                            Lorem Ipsum is simply dummy text of the printing and
+                            typesetting industry. Lorem Ipsum has been the
+                            industry's standard dummy text ever since the 1500s,
+                            when an unknown printer took a galley of type and
+                            scrambled it to make a type specimen book.
+                          </p>
+                          <div
+                            class="feedback__action d-flex align-items-center"
+                          >
+                            <span class="feedback__time fs-xs fw-medium"
+                              >1h</span
+                            >
+                            <span class="d-flex">
+                              <span class="d-flex align-items-center">
+                                <span class="like__action d-inline-block me-1"
+                                  ><img
+                                    class="w-100 h-100 object-fit-cover"
+                                    src="../../assets/images/icons/like.png"
+                                    alt="like"
+                                /></span>
+                                <span class="fs-xs fw-medium">0</span>
+                              </span>
+                              <span class="divider-1"></span>
+                              <span class="d-flex align-items-center">
+                                <span
+                                  class="dislike__action d-inline-block me-1"
+                                  ><img
+                                    class="w-100 h-100 object-fit-cover"
+                                    src="../../assets/images/icons/dislike.png"
+                                    alt="dislike"
+                                /></span>
+                                <span class="fs-xs fw-medium">0</span>
+                              </span>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="reply__feedback mt-4">
+                        <div class="reply__info d-flex align-items-center">
+                          <div
+                            class="user__img position-relative flex-shrink-0 me-2"
+                          >
+                            <img
+                              class="rounded-circle w-100 h-100 object-fit-cover"
+                              src="../../assets/images/users/user-1.png"
+                              alt="user"
+                            />
+                          </div>
+                          <div>
+                            <span
+                              class="d-inline-block fs-medium fw-semibold me-3"
+                              >Name</span
+                            >
+                            <span
+                              class="user__position d-inline-block text-uppercase fs-xs fw-semibold"
+                              >PROJECT OWNER</span
+                            >
+                          </div>
+                        </div>
+                        <div
+                          class="reply__content feedback__content d-flex flex-column position-relative"
+                        >
+                          <p class="fw-normal mb-0">
+                            Lorem Ipsum is simply dummy text of the printing and
+                            typesetting industry. Lorem Ipsum has been the
+                            industry's standard dummy text ever since the 1500s,
+                            when an unknown printer took a galley of type and
+                            scrambled it to make a type specimen book.
+                          </p>
+                          <div
+                            class="feedback__action d-flex align-items-center"
+                          >
+                            <span class="feedback__time fs-xs fw-medium"
+                              >1h</span
+                            >
+                            <span class="d-flex">
+                              <span class="d-flex align-items-center">
+                                <span class="like__action d-inline-block me-1"
+                                  ><img
+                                    class="w-100 h-100 object-fit-cover"
+                                    src="../../assets/images/icons/like.png"
+                                    alt="like"
+                                /></span>
+                                <span class="fs-xs fw-medium">0</span>
+                              </span>
+                              <span class="divider-1"></span>
+                              <span class="d-flex align-items-center">
+                                <span
+                                  class="dislike__action d-inline-block me-1"
+                                  ><img
+                                    class="w-100 h-100 object-fit-cover"
+                                    src="../../assets/images/icons/dislike.png"
+                                    alt="dislike"
+                                /></span>
+                                <span class="fs-xs fw-medium">0</span>
+                              </span>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="rating">
+                      <div class="rating__feedback">
+                        <div class="feedback__info d-flex align-items-start">
+                          <div
+                            class="user__img position-relative flex-shrink-0"
+                          >
+                            <img
+                              class="rounded-circle w-100 h-100 object-fit-cover"
+                              src="../../assets/images/users/user-1.png"
+                              alt="user"
+                            />
+                          </div>
+                          <div
+                            class="d-flex flex-wrap justify-content-between align-items-baseline w-100"
+                          >
+                            <div>
+                              <div class="fw-semibold mb-1">
+                                <span class="fs-medium">Username</span>
+                                <span
+                                  class="user__position fs-xs text-uppercase ms-4"
+                                  >BACKER</span
+                                >
+                              </div>
+                              <span class="fw-normal">Location</span>
+                            </div>
+                            <span class="fw-normal">MM / DD / YY</span>
+                          </div>
+                        </div>
+                        <div class="star d-flex align-items-center">
+                          <span
+                            ><img
+                              class="w-100 h-100 object-fit-cover"
+                              src="../../assets/images/icons/Star 3.png"
+                              alt="star"
+                          /></span>
+                          <span
+                            ><img
+                              class="w-100 h-100 object-fit-cover"
+                              src="../../assets/images/icons/Star 3.png"
+                              alt="star"
+                          /></span>
+                          <span
+                            ><img
+                              class="w-100 h-100 object-fit-cover"
+                              src="../../assets/images/icons/Star 3.png"
+                              alt="star"
+                          /></span>
+                          <span
+                            ><img
+                              class="w-100 h-100 object-fit-cover"
+                              src="../../assets/images/icons/Star 3.png"
+                              alt="star"
+                          /></span>
+                          <span
+                            ><img
+                              class="w-100 h-100 object-fit-cover"
+                              src="../../assets/images/icons/Star 3.png"
+                              alt="star"
+                          /></span>
+                        </div>
+                        <div class="feedback__content d-flex flex-column">
+                          <h5 class="fs-medium fw-semibold mb-0">Headline</h5>
+                          <p class="fw-normal mb-0">
+                            Lorem Ipsum is simply dummy text of the printing and
+                            typesetting industry. Lorem Ipsum has been the
+                            industry's standard dummy text ever since the 1500s,
+                            when an unknown printer took a galley of type and
+                            scrambled it to make a type specimen book.
+                          </p>
+                          <div
+                            class="feedback__action d-flex align-items-center"
+                          >
+                            <span class="feedback__time fs-xs fw-medium"
+                              >1h</span
+                            >
+                            <span class="d-flex">
+                              <span class="d-flex align-items-center">
+                                <span class="like__action d-inline-block me-1"
+                                  ><img
+                                    class="w-100 h-100 object-fit-cover"
+                                    src="../../assets/images/icons/like.png"
+                                    alt="like"
+                                /></span>
+                                <span class="fs-xs fw-medium">0</span>
+                              </span>
+                              <span class="divider-1"></span>
+                              <span class="d-flex align-items-center">
+                                <span
+                                  class="dislike__action d-inline-block me-1"
+                                  ><img
+                                    class="w-100 h-100 object-fit-cover"
+                                    src="../../assets/images/icons/dislike.png"
+                                    alt="dislike"
+                                /></span>
+                                <span class="fs-xs fw-medium">0</span>
+                              </span>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="rating">
+                      <div class="rating__feedback">
+                        <div class="feedback__info d-flex align-items-start">
+                          <div
+                            class="user__img position-relative flex-shrink-0"
+                          >
+                            <img
+                              class="rounded-circle w-100 h-100 object-fit-cover"
+                              src="../../assets/images/users/user-1.png"
+                              alt="user"
+                            />
+                          </div>
+                          <div
+                            class="d-flex flex-wrap justify-content-between align-items-baseline w-100"
+                          >
+                            <div>
+                              <div class="fw-semibold mb-1">
+                                <span class="fs-medium">Username</span>
+                                <span
+                                  class="user__position fs-xs text-uppercase ms-4"
+                                  >BACKER</span
+                                >
+                              </div>
+                              <span class="fw-normal">Location</span>
+                            </div>
+                            <span class="fw-normal">MM / DD / YY</span>
+                          </div>
+                        </div>
+                        <div class="star d-flex align-items-center">
+                          <span
+                            ><img
+                              class="w-100 h-100 object-fit-cover"
+                              src="../../assets/images/icons/Star 3.png"
+                              alt="star"
+                          /></span>
+                          <span
+                            ><img
+                              class="w-100 h-100 object-fit-cover"
+                              src="../../assets/images/icons/Star 3.png"
+                              alt="star"
+                          /></span>
+                          <span
+                            ><img
+                              class="w-100 h-100 object-fit-cover"
+                              src="../../assets/images/icons/Star 3.png"
+                              alt="star"
+                          /></span>
+                          <span
+                            ><img
+                              class="w-100 h-100 object-fit-cover"
+                              src="../../assets/images/icons/Star 3.png"
+                              alt="star"
+                          /></span>
+                          <span
+                            ><img
+                              class="w-100 h-100 object-fit-cover"
+                              src="../../assets/images/icons/Star 3.png"
+                              alt="star"
+                          /></span>
+                        </div>
+                        <div class="feedback__content d-flex flex-column">
+                          <h5 class="fs-medium fw-semibold mb-0">Headline</h5>
+                          <p class="fw-normal mb-0">
+                            Lorem Ipsum is simply dummy text of the printing and
+                            typesetting industry. Lorem Ipsum has been the
+                            industry's standard dummy text ever since the 1500s,
+                            when an unknown printer took a galley of type and
+                            scrambled it to make a type specimen book.
+                          </p>
+                          <div
+                            class="feedback__action d-flex align-items-center"
+                          >
+                            <span class="feedback__time fs-xs fw-medium"
+                              >1h</span
+                            >
+                            <span class="d-flex">
+                              <span class="d-flex align-items-center">
+                                <span class="like__action d-inline-block me-1"
+                                  ><img
+                                    class="w-100 h-100 object-fit-cover"
+                                    src="../../assets/images/icons/like.png"
+                                    alt="like"
+                                /></span>
+                                <span class="fs-xs fw-medium">0</span>
+                              </span>
+                              <span class="divider-1"></span>
+                              <span class="d-flex align-items-center">
+                                <span
+                                  class="dislike__action d-inline-block me-1"
+                                  ><img
+                                    class="w-100 h-100 object-fit-cover"
+                                    src="../../assets/images/icons/dislike.png"
+                                    alt="dislike"
+                                /></span>
+                                <span class="fs-xs fw-medium">0</span>
+                              </span>
+                            </span>
+                          </div>
+                        </div>
+                        <div
+                          class="feedback__img d-flex align-items-center mt-4 overflow-hidden"
+                        >
+                          <div>
+                            <img
+                              class="w-100 h-100 object-fit-cover"
+                              src="../../assets/images/campaign/8.png"
+                              alt="comment"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="rating">
+                      <div class="rating__feedback">
+                        <div class="feedback__info d-flex align-items-start">
+                          <div
+                            class="user__img position-relative flex-shrink-0"
+                          >
+                            <img
+                              class="rounded-circle w-100 h-100 object-fit-cover"
+                              src="../../assets/images/users/user-1.png"
+                              alt="user"
+                            />
+                          </div>
+                          <div
+                            class="d-flex flex-wrap justify-content-between align-items-baseline w-100"
+                          >
+                            <div>
+                              <div class="fw-semibold mb-1">
+                                <span class="fs-medium">Username</span>
+                                <span
+                                  class="user__position fs-xs text-uppercase ms-4"
+                                  >BACKER</span
+                                >
+                              </div>
+                              <span class="fw-normal">Location</span>
+                            </div>
+                            <span class="fw-normal">MM / DD / YY</span>
+                          </div>
+                        </div>
+                        <div class="star d-flex align-items-center">
+                          <span
+                            ><img
+                              class="w-100 h-100 object-fit-cover"
+                              src="../../assets/images/icons/Star 3.png"
+                              alt="star"
+                          /></span>
+                          <span
+                            ><img
+                              class="w-100 h-100 object-fit-cover"
+                              src="../../assets/images/icons/Star 3.png"
+                              alt="star"
+                          /></span>
+                          <span
+                            ><img
+                              class="w-100 h-100 object-fit-cover"
+                              src="../../assets/images/icons/Star 3.png"
+                              alt="star"
+                          /></span>
+                          <span
+                            ><img
+                              class="w-100 h-100 object-fit-cover"
+                              src="../../assets/images/icons/Star 3.png"
+                              alt="star"
+                          /></span>
+                          <span
+                            ><img
+                              class="w-100 h-100 object-fit-cover"
+                              src="../../assets/images/icons/Star 3.png"
+                              alt="star"
+                          /></span>
+                        </div>
+                        <div class="feedback__content d-flex flex-column">
+                          <h5 class="fs-medium fw-semibold mb-0">Headline</h5>
+                          <p class="fw-normal mb-0">
+                            Lorem Ipsum is simply dummy text of the printing and
+                            typesetting industry. Lorem Ipsum has been the
+                            industry's standard dummy text ever since the 1500s,
+                            when an unknown printer took a galley of type and
+                            scrambled it to make a type specimen book.
+                          </p>
+                          <div
+                            class="feedback__action d-flex align-items-center"
+                          >
+                            <span class="feedback__time fs-xs fw-medium"
+                              >1h</span
+                            >
+                            <span class="d-flex">
+                              <span class="d-flex align-items-center">
+                                <span class="like__action d-inline-block me-1"
+                                  ><img
+                                    class="w-100 h-100 object-fit-cover"
+                                    src="../../assets/images/icons/like.png"
+                                    alt="like"
+                                /></span>
+                                <span class="fs-xs fw-medium">0</span>
+                              </span>
+                              <span class="divider-1"></span>
+                              <span class="d-flex align-items-center">
+                                <span
+                                  class="dislike__action d-inline-block me-1"
+                                  ><img
+                                    class="w-100 h-100 object-fit-cover"
+                                    src="../../assets/images/icons/dislike.png"
+                                    alt="dislike"
+                                /></span>
+                                <span class="fs-xs fw-medium">0</span>
+                              </span>
+                            </span>
+                          </div>
+                        </div>
+                        <div
+                          class="feedback__img d-flex align-items-center mt-4 overflow-hidden"
+                        >
+                          <div>
+                            <img
+                              class="w-100 h-100 object-fit-cover"
+                              src="../../assets/images/campaign/8.png"
+                              alt="comment"
+                            />
+                          </div>
+                          <div>
+                            <img
+                              class="w-100 h-100 object-fit-cover"
+                              src="../../assets/images/campaign/8.png"
+                              alt="comment"
+                            />
+                          </div>
+                          <div>
+                            <img
+                              class="w-100 h-100 object-fit-cover"
+                              src="../../assets/images/campaign/8.png"
+                              alt="comment"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="reply__feedback mt-4">
+                        <div class="reply__info d-flex align-items-center">
+                          <div
+                            class="user__img position-relative flex-shrink-0 me-2"
+                          >
+                            <img
+                              class="rounded-circle w-100 h-100 object-fit-cover"
+                              src="../../assets/images/users/user-1.png"
+                              alt="user"
+                            />
+                          </div>
+                          <div>
+                            <span
+                              class="d-inline-block fs-medium fw-semibold me-3"
+                              >Name</span
+                            >
+                            <span
+                              class="user__position d-inline-block text-uppercase fs-xs fw-semibold"
+                              >PROJECT OWNER</span
+                            >
+                          </div>
+                        </div>
+                        <div
+                          class="reply__content feedback__content d-flex flex-column position-relative"
+                        >
+                          <p class="fw-normal mb-0">
+                            Lorem Ipsum is simply dummy text of the printing and
+                            typesetting industry. Lorem Ipsum has been the
+                            industry's standard dummy text ever since the 1500s,
+                            when an unknown printer took a galley of type and
+                            scrambled it to make a type specimen book.
+                          </p>
+                          <div
+                            class="feedback__action d-flex align-items-center"
+                          >
+                            <span class="feedback__time fs-xs fw-medium"
+                              >1h</span
+                            >
+                            <span class="d-flex">
+                              <span class="d-flex align-items-center">
+                                <span class="like__action d-inline-block me-1"
+                                  ><img
+                                    class="w-100 h-100 object-fit-cover"
+                                    src="../../assets/images/icons/like.png"
+                                    alt="like"
+                                /></span>
+                                <span class="fs-xs fw-medium">0</span>
+                              </span>
+                              <span class="divider-1"></span>
+                              <span class="d-flex align-items-center">
+                                <span
+                                  class="dislike__action d-inline-block me-1"
+                                  ><img
+                                    class="w-100 h-100 object-fit-cover"
+                                    src="../../assets/images/icons/dislike.png"
+                                    alt="dislike"
+                                /></span>
+                                <span class="fs-xs fw-medium">0</span>
+                              </span>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="rating">
+                      <div class="rating__feedback">
+                        <div class="feedback__info d-flex align-items-start">
+                          <div
+                            class="user__img position-relative flex-shrink-0"
+                          >
+                            <img
+                              class="rounded-circle w-100 h-100 object-fit-cover"
+                              src="../../assets/images/users/user-1.png"
+                              alt="user"
+                            />
+                          </div>
+                          <div
+                            class="d-flex flex-wrap justify-content-between align-items-baseline w-100"
+                          >
+                            <div>
+                              <div class="fw-semibold mb-1">
+                                <span class="fs-medium">Username</span>
+                                <span
+                                  class="user__position fs-xs text-uppercase ms-4"
+                                  >BACKER</span
+                                >
+                              </div>
+                              <span class="fw-normal">Location</span>
+                            </div>
+                            <span class="fw-normal">MM / DD / YY</span>
+                          </div>
+                        </div>
+                        <div class="star d-flex align-items-center">
+                          <span
+                            ><img
+                              class="w-100 h-100 object-fit-cover"
+                              src="../../assets/images/icons/Star 3.png"
+                              alt="star"
+                          /></span>
+                          <span
+                            ><img
+                              class="w-100 h-100 object-fit-cover"
+                              src="../../assets/images/icons/Star 3.png"
+                              alt="star"
+                          /></span>
+                          <span
+                            ><img
+                              class="w-100 h-100 object-fit-cover"
+                              src="../../assets/images/icons/Star 3.png"
+                              alt="star"
+                          /></span>
+                          <span
+                            ><img
+                              class="w-100 h-100 object-fit-cover"
+                              src="../../assets/images/icons/Star 3.png"
+                              alt="star"
+                          /></span>
+                          <span
+                            ><img
+                              class="w-100 h-100 object-fit-cover"
+                              src="../../assets/images/icons/Star 3.png"
+                              alt="star"
+                          /></span>
+                        </div>
+                        <div class="feedback__content d-flex flex-column">
+                          <h5 class="fs-medium fw-semibold mb-0">Headline</h5>
+                          <p class="fw-normal mb-0">
+                            Lorem Ipsum is simply dummy text of the printing and
+                            typesetting industry. Lorem Ipsum has been the
+                            industry's standard dummy text ever since the 1500s,
+                            when an unknown printer took a galley of type and
+                            scrambled it to make a type specimen book.
+                          </p>
+                          <div
+                            class="feedback__action d-flex align-items-center"
+                          >
+                            <span class="feedback__time fs-xs fw-medium"
+                              >1h</span
+                            >
+                            <span class="d-flex">
+                              <span class="d-flex align-items-center">
+                                <span class="like__action d-inline-block me-1"
+                                  ><img
+                                    class="w-100 h-100 object-fit-cover"
+                                    src="../../assets/images/icons/like.png"
+                                    alt="like"
+                                /></span>
+                                <span class="fs-xs fw-medium">0</span>
+                              </span>
+                              <span class="divider-1"></span>
+                              <span class="d-flex align-items-center">
+                                <span
+                                  class="dislike__action d-inline-block me-1"
+                                  ><img
+                                    class="w-100 h-100 object-fit-cover"
+                                    src="../../assets/images/icons/dislike.png"
+                                    alt="dislike"
+                                /></span>
+                                <span class="fs-xs fw-medium">0</span>
+                              </span>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="reply__feedback mt-4">
+                        <div class="reply__info d-flex align-items-center">
+                          <div
+                            class="user__img position-relative flex-shrink-0 me-2"
+                          >
+                            <img
+                              class="rounded-circle w-100 h-100 object-fit-cover"
+                              src="../../assets/images/users/user-1.png"
+                              alt="user"
+                            />
+                          </div>
+                          <div>
+                            <span
+                              class="d-inline-block fs-medium fw-semibold me-3"
+                              >Name</span
+                            >
+                            <span
+                              class="user__position d-inline-block text-uppercase fs-xs fw-semibold"
+                              >PROJECT OWNER</span
+                            >
+                          </div>
+                        </div>
+                        <div
+                          class="reply__content feedback__content d-flex flex-column position-relative"
+                        >
+                          <p class="fw-normal mb-0">
+                            Lorem Ipsum is simply dummy text of the printing and
+                            typesetting industry. Lorem Ipsum has been the
+                            industry's standard dummy text ever since the 1500s,
+                            when an unknown printer took a galley of type and
+                            scrambled it to make a type specimen book.
+                          </p>
+                          <div
+                            class="feedback__action d-flex align-items-center"
+                          >
+                            <span class="feedback__time fs-xs fw-medium"
+                              >1h</span
+                            >
+                            <span class="d-flex">
+                              <span class="d-flex align-items-center">
+                                <span class="like__action d-inline-block me-1"
+                                  ><img
+                                    class="w-100 h-100 object-fit-cover"
+                                    src="../../assets/images/icons/like.png"
+                                    alt="like"
+                                /></span>
+                                <span class="fs-xs fw-medium">0</span>
+                              </span>
+                              <span class="divider-1"></span>
+                              <span class="d-flex align-items-center">
+                                <span
+                                  class="dislike__action d-inline-block me-1"
+                                  ><img
+                                    class="w-100 h-100 object-fit-cover"
+                                    src="../../assets/images/icons/dislike.png"
+                                    alt="dislike"
+                                /></span>
+                                <span class="fs-xs fw-medium">0</span>
+                              </span>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="rating">
+                      <div class="rating__feedback">
+                        <div class="feedback__info d-flex align-items-start">
+                          <div
+                            class="user__img position-relative flex-shrink-0"
+                          >
+                            <img
+                              class="rounded-circle w-100 h-100 object-fit-cover"
+                              src="../../assets/images/users/user-1.png"
+                              alt="user"
+                            />
+                          </div>
+                          <div
+                            class="d-flex flex-wrap justify-content-between align-items-baseline w-100"
+                          >
+                            <div>
+                              <div class="fw-semibold mb-1">
+                                <span class="fs-medium">Username</span>
+                                <span
+                                  class="user__position fs-xs text-uppercase ms-4"
+                                  >BACKER</span
+                                >
+                              </div>
+                              <span class="fw-normal">Location</span>
+                            </div>
+                            <span class="fw-normal">MM / DD / YY</span>
+                          </div>
+                        </div>
+                        <div class="star d-flex align-items-center">
+                          <span
+                            ><img
+                              class="w-100 h-100 object-fit-cover"
+                              src="../../assets/images/icons/Star 3.png"
+                              alt="star"
+                          /></span>
+                          <span
+                            ><img
+                              class="w-100 h-100 object-fit-cover"
+                              src="../../assets/images/icons/Star 3.png"
+                              alt="star"
+                          /></span>
+                          <span
+                            ><img
+                              class="w-100 h-100 object-fit-cover"
+                              src="../../assets/images/icons/Star 3.png"
+                              alt="star"
+                          /></span>
+                          <span
+                            ><img
+                              class="w-100 h-100 object-fit-cover"
+                              src="../../assets/images/icons/Star 3.png"
+                              alt="star"
+                          /></span>
+                          <span
+                            ><img
+                              class="w-100 h-100 object-fit-cover"
+                              src="../../assets/images/icons/Star 3.png"
+                              alt="star"
+                          /></span>
+                        </div>
+                        <div class="feedback__content d-flex flex-column">
+                          <h5 class="fs-medium fw-semibold mb-0">Headline</h5>
+                          <p class="fw-normal mb-0">
+                            Lorem Ipsum is simply dummy text of the printing and
+                            typesetting industry. Lorem Ipsum has been the
+                            industry's standard dummy text ever since the 1500s,
+                            when an unknown printer took a galley of type and
+                            scrambled it to make a type specimen book.
+                          </p>
+                          <div
+                            class="feedback__action d-flex align-items-center"
+                          >
+                            <span class="feedback__time fs-xs fw-medium"
+                              >1h</span
+                            >
+                            <span class="d-flex">
+                              <span class="d-flex align-items-center">
+                                <span class="like__action d-inline-block me-1"
+                                  ><img
+                                    class="w-100 h-100 object-fit-cover"
+                                    src="../../assets/images/icons/like.png"
+                                    alt="like"
+                                /></span>
+                                <span class="fs-xs fw-medium">0</span>
+                              </span>
+                              <span class="divider-1"></span>
+                              <span class="d-flex align-items-center">
+                                <span
+                                  class="dislike__action d-inline-block me-1"
+                                  ><img
+                                    class="w-100 h-100 object-fit-cover"
+                                    src="../../assets/images/icons/dislike.png"
+                                    alt="dislike"
+                                /></span>
+                                <span class="fs-xs fw-medium">0</span>
+                              </span>
+                            </span>
+                          </div>
+                        </div>
+                        <div
+                          class="feedback__img d-flex align-items-center mt-4 overflow-hidden"
+                        >
+                          <div>
+                            <img
+                              class="w-100 h-100 object-fit-cover"
+                              src="../../assets/images/campaign/8.png"
+                              alt="comment"
+                            />
+                          </div>
+                          <div>
+                            <img
+                              class="w-100 h-100 object-fit-cover"
+                              src="../../assets/images/campaign/8.png"
+                              alt="comment"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="reply__feedback mt-4">
+                        <div class="reply__info d-flex align-items-center">
+                          <div
+                            class="user__img position-relative flex-shrink-0 me-2"
+                          >
+                            <img
+                              class="rounded-circle w-100 h-100 object-fit-cover"
+                              src="../../assets/images/users/user-1.png"
+                              alt="user"
+                            />
+                          </div>
+                          <div>
+                            <span
+                              class="d-inline-block fs-medium fw-semibold me-3"
+                              >Name</span
+                            >
+                            <span
+                              class="user__position d-inline-block text-uppercase fs-xs fw-semibold"
+                              >PROJECT OWNER</span
+                            >
+                          </div>
+                        </div>
+                        <div
+                          class="reply__content feedback__content d-flex flex-column position-relative"
+                        >
+                          <p class="fw-normal mb-0">
+                            Lorem Ipsum is simply dummy text of the printing and
+                            typesetting industry. Lorem Ipsum has been the
+                            industry's standard dummy text ever since the 1500s,
+                            when an unknown printer took a galley of type and
+                            scrambled it to make a type specimen book.
+                          </p>
+                          <div
+                            class="feedback__action d-flex align-items-center"
+                          >
+                            <span class="feedback__time fs-xs fw-medium"
+                              >1h</span
+                            >
+                            <span class="d-flex">
+                              <span class="d-flex align-items-center">
+                                <span class="like__action d-inline-block me-1"
+                                  ><img
+                                    class="w-100 h-100 object-fit-cover"
+                                    src="../../assets/images/icons/like.png"
+                                    alt="like"
+                                /></span>
+                                <span class="fs-xs fw-medium">0</span>
+                              </span>
+                              <span class="divider-1"></span>
+                              <span class="d-flex align-items-center">
+                                <span
+                                  class="dislike__action d-inline-block me-1"
+                                  ><img
+                                    class="w-100 h-100 object-fit-cover"
+                                    src="../../assets/images/icons/dislike.png"
+                                    alt="dislike"
+                                /></span>
+                                <span class="fs-xs fw-medium">0</span>
+                              </span>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="rating">
+                      <div class="rating__feedback">
+                        <div class="feedback__info d-flex align-items-start">
+                          <div
+                            class="user__img position-relative flex-shrink-0"
+                          >
+                            <img
+                              class="rounded-circle w-100 h-100 object-fit-cover"
+                              src="../../assets/images/users/user-1.png"
+                              alt="user"
+                            />
+                          </div>
+                          <div
+                            class="d-flex flex-wrap justify-content-between align-items-baseline w-100"
+                          >
+                            <div>
+                              <div class="fw-semibold mb-1">
+                                <span class="fs-medium">Username</span>
+                                <span
+                                  class="user__position fs-xs text-uppercase ms-4"
+                                  >BACKER</span
+                                >
+                              </div>
+                              <span class="fw-normal">Location</span>
+                            </div>
+                            <span class="fw-normal">MM / DD / YY</span>
+                          </div>
+                        </div>
+                        <div class="star d-flex align-items-center">
+                          <span
+                            ><img
+                              class="w-100 h-100 object-fit-cover"
+                              src="../../assets/images/icons/Star 3.png"
+                              alt="star"
+                          /></span>
+                          <span
+                            ><img
+                              class="w-100 h-100 object-fit-cover"
+                              src="../../assets/images/icons/Star 3.png"
+                              alt="star"
+                          /></span>
+                          <span
+                            ><img
+                              class="w-100 h-100 object-fit-cover"
+                              src="../../assets/images/icons/Star 3.png"
+                              alt="star"
+                          /></span>
+                          <span
+                            ><img
+                              class="w-100 h-100 object-fit-cover"
+                              src="../../assets/images/icons/Star 3.png"
+                              alt="star"
+                          /></span>
+                          <span
+                            ><img
+                              class="w-100 h-100 object-fit-cover"
+                              src="../../assets/images/icons/Star 3.png"
+                              alt="star"
+                          /></span>
+                        </div>
+                        <div class="feedback__content d-flex flex-column">
+                          <h5 class="fs-medium fw-semibold mb-0">Headline</h5>
+                          <p class="fw-normal mb-0">
+                            Lorem Ipsum is simply dummy text of the printing and
+                            typesetting industry. Lorem Ipsum has been the
+                            industry's standard dummy text ever since the 1500s,
+                            when an unknown printer took a galley of type and
+                            scrambled it to make a type specimen book.
+                          </p>
+                          <div
+                            class="feedback__action d-flex align-items-center"
+                          >
+                            <span class="feedback__time fs-xs fw-medium"
+                              >1h</span
+                            >
+                            <span class="d-flex">
+                              <span class="d-flex align-items-center">
+                                <span class="like__action d-inline-block me-1"
+                                  ><img
+                                    class="w-100 h-100 object-fit-cover"
+                                    src="../../assets/images/icons/like.png"
+                                    alt="like"
+                                /></span>
+                                <span class="fs-xs fw-medium">0</span>
+                              </span>
+                              <span class="divider-1"></span>
+                              <span class="d-flex align-items-center">
+                                <span
+                                  class="dislike__action d-inline-block me-1"
+                                  ><img
+                                    class="w-100 h-100 object-fit-cover"
+                                    src="../../assets/images/icons/dislike.png"
+                                    alt="dislike"
+                                /></span>
+                                <span class="fs-xs fw-medium">0</span>
+                              </span>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-md-4">
+                  <div class="lh-base sorted">
+                    <div class="rating__sorted d-flex align-items-center">
+                      <span class="sorted__img"
+                        ><img
+                          class="w-100 h-100 object-fit-cover"
+                          src="../../assets/images/icons/filter-lines.png"
+                          alt="filter" /></span
+                      ><span class="fs-medium fw-semibold">Sort by</span>
+                    </div>
+                    <div class="rating__overall ps-2">
+                      <span class="fw-semibold">Overrall</span>
+                      <div class="d-flex align-items-center">
+                        <div class="score">
+                          <span class="fs-5 fw-semibold">4.9</span
+                          ><span class="fw-normal position-relative">/</span
+                          ><span class="fw-normal position-relative">5</span>
+                        </div>
+                        <div class="star d-flex align-items-center">
+                          <span
+                            ><img
+                              class="w-100 h-100 object-fit-cover"
+                              src="../../assets/images/icons/Star 3.png"
+                              alt="star"
+                          /></span>
+                          <span
+                            ><img
+                              class="w-100 h-100 object-fit-cover"
+                              src="../../assets/images/icons/Star 3.png"
+                              alt="star"
+                          /></span>
+                          <span
+                            ><img
+                              class="w-100 h-100 object-fit-cover"
+                              src="../../assets/images/icons/Star 3.png"
+                              alt="star"
+                          /></span>
+                          <span
+                            ><img
+                              class="w-100 h-100 object-fit-cover"
+                              src="../../assets/images/icons/Star 3.png"
+                              alt="star"
+                          /></span>
+                          <span
+                            ><img
+                              class="w-100 h-100 object-fit-cover"
+                              src="../../assets/images/icons/Star 3.png"
+                              alt="star"
+                          /></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- main tab 4 -->
+          <div
+            class="tab-pane"
+            id="simple-tabpanel-3"
+            role="tabpanel"
+            aria-labelledby="simple-tab-3"
+          >
+            <div
+              class="faq__tab fw-normal lh-base d-flex flex-wrap flex-md-nowrap"
+            >
+              <span class="question__callout">
+                <span class="fw-medium d-inline-block flex-shrink-0"
+                  >Want to ask a question directly?</span
+                >
+                <span>Click <a href="">here</a></span>
+              </span>
+              <div class="faq__wrapper w-100">
+                <div
+                  class="faq__item d-flex justify-content-between cursor-pointer border-xl p-4 mb-4"
+                >
+                  <span class="item__title fw-medium"
+                    >How can I talk to you guys directly?</span
+                  >
+                  <span
+                    class="item__svg p-2 d-flex justify-content-center align-items-center"
+                    ><svg
+                      class="w-100 h-100"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 512 512"
+                    >
+                      <path
+                        d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
+                      /></svg
+                  ></span>
+                </div>
+                <div
+                  class="faq__item d-flex justify-content-between cursor-pointer border-xl p-4 mb-4"
+                >
+                  <span class="item__title fw-medium"
+                    >What's the shooting range?</span
+                  >
+                  <span
+                    class="item__svg p-2 d-flex justify-content-center align-items-center"
+                    ><svg
+                      class="w-100 h-100"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 512 512"
+                    >
+                      <path
+                        d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
+                      /></svg
+                  ></span>
+                </div>
+                <div
+                  class="faq__item d-flex justify-content-between cursor-pointer border-xl p-4 mb-4"
+                >
+                  <span class="item__title fw-medium"
+                    >How powerful is the SpyraGravity?</span
+                  >
+                  <span
+                    class="item__svg p-2 d-flex justify-content-center align-items-center"
+                    ><svg
+                      class="w-100 h-100"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 512 512"
+                    >
+                      <path
+                        d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
+                      /></svg
+                  ></span>
+                </div>
+                <div
+                  class="faq__item d-flex justify-content-between cursor-pointer border-xl p-4 mb-4"
+                >
+                  <span class="item__title fw-medium"
+                    >How do I refill the water boom?</span
+                  >
+                  <span
+                    class="item__svg p-2 d-flex justify-content-center align-items-center"
+                    ><svg
+                      class="w-100 h-100"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 512 512"
+                    >
+                      <path
+                        d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
+                      /></svg
+                  ></span>
+                </div>
+                <div
+                  class="faq__item d-flex justify-content-between cursor-pointer border-xl p-4 mb-4"
+                >
+                  <span class="item__title fw-medium">Is this dangerous?</span>
+                  <span
+                    class="item__svg p-2 d-flex justify-content-center align-items-center"
+                    ><svg
+                      class="w-100 h-100"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 512 512"
+                    >
+                      <path
+                        d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
+                      /></svg
+                  ></span>
+                </div>
+                <div
+                  class="faq__item d-flex justify-content-between cursor-pointer border-xl p-4 mb-4"
+                >
+                  <span class="item__title fw-medium">What's your policy?</span>
+                  <span
+                    class="item__svg p-2 d-flex justify-content-center align-items-center"
+                    ><svg
+                      class="w-100 h-100"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 512 512"
+                    >
+                      <path
+                        d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
+                      /></svg
+                  ></span>
+                </div>
+                <div
+                  class="faq__item d-flex justify-content-between cursor-pointer border-xl p-4 mb-4"
+                >
+                  <span class="item__title fw-medium"
+                    >Is the SpyraGravitywaterproof?</span
+                  >
+                  <span
+                    class="item__svg p-2 d-flex justify-content-center align-items-center"
+                    ><svg
+                      class="w-100 h-100"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 512 512"
+                    >
+                      <path
+                        d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
+                      /></svg
+                  ></span>
+                </div>
+                <div
+                  class="faq__item d-flex justify-content-between cursor-pointer border-xl p-4 mb-4"
+                >
+                  <span class="item__title fw-medium"
+                    >Can I use SpyraGravitywith different water booms?</span
+                  >
+                  <span
+                    class="item__svg p-2 d-flex justify-content-center align-items-center"
+                    ><svg
+                      class="w-100 h-100"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 512 512"
+                    >
+                      <path
+                        d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
+                      /></svg
+                  ></span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
