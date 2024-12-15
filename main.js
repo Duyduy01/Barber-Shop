@@ -1,14 +1,25 @@
 import routes, { layoutDefault } from "./router.js";
+import { SMOOTH } from "./constant.js";
+
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("/service-worker.js", {
+      scope: "/",
+    });
+  });
+}
 
 // slider
 export function handleSlide(event, callback) {
   const type = event.currentTarget.getAttribute("data-type");
   const slider = document.getElementById(type);
+
+  if (!type || !slider) return;
   const action =
     event.currentTarget.getAttribute("data-action") === "prev"
       ? "prev"
       : "next";
-  const behavior = "smooth";
+  const behavior = SMOOTH;
 
   callback(slider, action, behavior);
 }

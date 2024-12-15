@@ -6,11 +6,13 @@
   --color-white: white;
 
   --color-white-smoke: #fcfcfd;
+  --color-brand-50: #eff8ff;
   --color-brand-300: #84caff;
   --color-brand-400: #53b1fd;
   --color-brand-600: #1570ef;
   --color-brand-700: #175cd3;
 
+  --color-blue-500: #2e90fa;
   --color-blue-600: #1570ef;
   --color-blue-700: #175cd3;
 
@@ -26,6 +28,8 @@
   --color-gray-800: #182230;
   --color-gray-900: #101828;
   --color-gray-950: #0c111d;
+
+  --color-gray-blue-700: #363f72;
 
   --color-text-icon-primary: #111827;
   --color-text-icon-second: #374151;
@@ -50,6 +54,8 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box; /* Firefox, other Gecko */
 }
 
 html {
