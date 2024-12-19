@@ -1768,7 +1768,7 @@
     <script>
       import { handleSlide } from "../../main.js";
 
-      function slideCallback(...args) {
+      const slideCallback = (...args) => {
         const [slider, actionType, behavior] = args;
         const maxScrollLeft = slider.scrollWidth - slider.clientWidth;
         const itemWidth = slider.children[0]?.offsetWidth || 0;
@@ -1778,16 +1778,16 @@
         else if (actionType === "next" && slider.scrollLeft < maxScrollLeft)
           scrollSlider(slider, itemWidth, behavior);
         else return;
-      }
+      };
 
-      function scrollSlider(slider, offset, behavior) {
+      const scrollSlider = (slider, offset, behavior) => {
         slider.scrollBy({
           left: offset,
           behavior: behavior,
         });
-      }
+      };
 
-      function setupButtonsSliderListener(buttonSelector) {
+      const setupButtonsSliderListener = (buttonSelector) => {
         const buttons = document.querySelectorAll(buttonSelector);
         if (!buttons.length) return;
 
@@ -1796,9 +1796,9 @@
             handleSlide(event, slideCallback);
           });
         });
-      }
+      };
 
-      function initializeSliderFeedBacks(sliderSelector) {
+      const initializeSliderFeedBacks = (sliderSelector) => {
         const slider = document.querySelector(sliderSelector);
         const sliderWrapper = document.querySelector(
           ".home__feedbacks__wrapper .slider-wrapper"
@@ -1817,7 +1817,7 @@
 
           sliderWrapper.scrollLeft = scrollPosition;
         }
-      }
+      };
 
       (function initializeApp() {
         // Thiết lập sự kiện cho các nút

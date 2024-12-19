@@ -318,8 +318,8 @@
       }
       .faq__item {
         max-width: 40rem;
-        border: 1px solid var(--color-gray-800);
         background-color: var(--color-white);
+        border: 1px solid var(--color-gray-800);
       }
       .faq__item .item__title {
         padding: 0.375rem 0;
@@ -327,6 +327,13 @@
       .faq__item .item__svg {
         width: 2.25rem;
         height: 2.25rem;
+      }
+      .faq__item .faq__content {
+        transition: all 700ms cubic-bezier(0.4, 0, 0.2, 1);
+        max-height: 0;
+      }
+      .faq__item:focus-within .faq__content {
+        max-height: 100vh;
       }
       /* tab 5 */
       .update__item {
@@ -3308,153 +3315,528 @@
                 <span>Click <a href="">here</a></span>
               </span>
               <div class="faq__wrapper w-100">
-                <div
-                  class="faq__item d-flex justify-content-between cursor-pointer border-xl p-4 mb-4"
-                >
-                  <span class="item__title fw-medium"
-                    >How can I talk to you guys directly?</span
+                <div class="faq__item mb-4 border-xl" tabindex="0">
+                  <div
+                    class="item__header w-100 d-flex justify-content-between p-4"
                   >
-                  <span
-                    class="item__svg p-2 d-flex justify-content-center align-items-center"
-                    ><svg
-                      class="w-100 h-100"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 512 512"
+                    <span class="item__title fw-medium"
+                      >How can I talk to you guys directly?</span
                     >
-                      <path
-                        d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
-                      />
-                    </svg>
-                  </span>
+                    <span
+                      class="item__svg p-2 d-flex justify-content-center align-items-center"
+                      ><svg
+                        class="w-100 h-100"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 512 512"
+                      >
+                        <path
+                          d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  <div class="faq__content overflow-hidden">
+                    <p class="fs-small fw-normal pb-4 ps-4 pe-4 mb-0">
+                      Latest Production Update & Speed Limit Info for Europe<br /><br />Dear
+                      Backers,<br /><br />We’re thrilled to share that, with the
+                      support of nearly 700 backers, we’ve already raised over
+                      $250,000 in crowdfunding! This incredible achievement
+                      wouldn’t have been possible without your trust and
+                      support. We’ve been diligently keeping track of the
+                      factory’s production progress, and today we want to
+                      share the latest updates on PikaBoost 2 and provide a
+                      sincere response to the concerns about European speed
+                      limits.<br /><br />Prepping for the First 1,000 Units!<br /><br />Before
+                      we begin mass production, we need to order the materials
+                      from our suppliers. Once all the necessary components are
+                      in stock, we’ll promptly set up the production line and
+                      schedule our team to start the formal production phase. At
+                      the moment, we’re focused on this crucial and
+                      time-consuming stage of receiving all the materials. We
+                      truly appreciate your patience and support during this
+                      important process. We expect to have all the necessary
+                      materials ready by early September. Although this stage
+                      does take some time, it’s all to ensure that everything
+                      meets our high standards.<br /><br />Alright, that’s all
+                      for now! We hope you enjoyed the update. Over the next few
+                      weeks, we’ll keep you informed with the latest on
+                      production, certification, and shipping progress.We truly
+                      appreciate your support and will keep you updated every
+                      step of the way!<br /><br />Happy riding,<br /><br />Spyra
+                      Team
+                    </p>
+                  </div>
                 </div>
-                <div
-                  class="faq__item d-flex justify-content-between cursor-pointer border-xl p-4 mb-4"
-                >
-                  <span class="item__title fw-medium"
-                    >What's the shooting range?</span
+                <div class="faq__item mb-4 border-xl" tabindex="1">
+                  <div
+                    class="item__header w-100 d-flex justify-content-between p-4"
                   >
-                  <span
-                    class="item__svg p-2 d-flex justify-content-center align-items-center"
-                    ><svg
-                      class="w-100 h-100"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 512 512"
+                    <span class="item__title fw-medium"
+                      >What's the shooting range?</span
                     >
-                      <path
-                        d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
-                      />
-                    </svg>
-                  </span>
+                    <span
+                      class="item__svg p-2 d-flex justify-content-center align-items-center"
+                      ><svg
+                        class="w-100 h-100"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 512 512"
+                      >
+                        <path
+                          d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  <div class="faq__content overflow-hidden">
+                    <p class="fs-small fw-normal pb-4 ps-4 pe-4 mb-0">
+                      Latest Production Update & Speed Limit Info for Europe<br /><br />Dear
+                      Backers,<br /><br />We’re thrilled to share that, with the
+                      support of nearly 700 backers, we’ve already raised over
+                      $250,000 in crowdfunding! This incredible achievement
+                      wouldn’t have been possible without your trust and
+                      support. We’ve been diligently keeping track of the
+                      factory’s production progress, and today we want to
+                      share the latest updates on PikaBoost 2 and provide a
+                      sincere response to the concerns about European speed
+                      limits.<br /><br />Prepping for the First 1,000
+                      Units!Happy riding,<br /><br />Spyra Team
+                    </p>
+                  </div>
                 </div>
-                <div
-                  class="faq__item d-flex justify-content-between cursor-pointer border-xl p-4 mb-4"
-                >
-                  <span class="item__title fw-medium"
-                    >How powerful is the SpyraGravity?</span
+                <div class="faq__item mb-4 border-xl" tabindex="2">
+                  <div
+                    class="item__header w-100 d-flex justify-content-between p-4"
                   >
-                  <span
-                    class="item__svg p-2 d-flex justify-content-center align-items-center"
-                    ><svg
-                      class="w-100 h-100"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 512 512"
+                    <span class="item__title fw-medium"
+                      >How powerful is the SpyraGravity?</span
                     >
-                      <path
-                        d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
-                      />
-                    </svg>
-                  </span>
+                    <span
+                      class="item__svg p-2 d-flex justify-content-center align-items-center"
+                      ><svg
+                        class="w-100 h-100"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 512 512"
+                      >
+                        <path
+                          d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  <div class="faq__content overflow-hidden">
+                    <p class="fs-small fw-normal pb-4 ps-4 pe-4 mb-0">
+                      Latest Production Update & Speed Limit Info for Europe<br /><br />Dear
+                      Backers,<br /><br />Before we begin mass production, we
+                      need to order the materials from our suppliers. Once all
+                      the necessary components are in stock, we’ll promptly set
+                      up the production line and schedule our team to start the
+                      formal production phase. At the moment, we’re focused on
+                      this crucial and time-consuming stage of receiving all the
+                      materials. We truly appreciate your patience and support
+                      during this important process. We expect to have all the
+                      necessary materials ready by early September. Although
+                      this stage does take some time, it’s all to ensure that
+                      everything meets our high standards.<br /><br />We’ve also
+                      photographed some essential materials that have arrived,
+                      including packaging, electronic components, circuit
+                      boards, and structural parts. Our goal is to prepare for
+                      the production of 1,000 units. Once everything is set,
+                      we'll kick off the production phase, with plans to
+                      start shipping the first batch of 250 units by
+                      mid-September. We'll continue to keep you updated on our
+                      progress, so stay tuned for more!<br /><br />Alright,
+                      that’s all for now! We hope you enjoyed the update. Over
+                      the next few weeks, we’ll keep you informed with the
+                      latest on production, certification, and shipping
+                      progress.We truly appreciate your support and will keep
+                      you updated every step of the way!<br /><br />Happy
+                      riding,<br /><br />Spyra Team
+                    </p>
+                  </div>
                 </div>
-                <div
-                  class="faq__item d-flex justify-content-between cursor-pointer border-xl p-4 mb-4"
-                >
-                  <span class="item__title fw-medium"
-                    >How do I refill the water boom?</span
+                <div class="faq__item mb-4 border-xl" tabindex="3">
+                  <div
+                    class="item__header w-100 d-flex justify-content-between p-4"
                   >
-                  <span
-                    class="item__svg p-2 d-flex justify-content-center align-items-center"
-                    ><svg
-                      class="w-100 h-100"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 512 512"
+                    <span class="item__title fw-medium"
+                      >How do I refill the water boom?</span
                     >
-                      <path
-                        d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
-                      />
-                    </svg>
-                  </span>
+                    <span
+                      class="item__svg p-2 d-flex justify-content-center align-items-center"
+                      ><svg
+                        class="w-100 h-100"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 512 512"
+                      >
+                        <path
+                          d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  <div class="faq__content overflow-hidden">
+                    <p class="fs-small fw-normal pb-4 ps-4 pe-4 mb-0">
+                      Latest Production Update & Speed Limit Info for Europe<br /><br />Dear
+                      Backers,<br /><br />We’re thrilled to share that, with the
+                      support of nearly 700 backers, we’ve already raised over
+                      $250,000 in crowdfunding! This incredible achievement
+                      wouldn’t have been possible without your trust and
+                      support. We’ve been diligently keeping track of the
+                      factory’s production progress, and today we want to
+                      share the latest updates on PikaBoost 2 and provide a
+                      sincere response to the concerns about European speed
+                      limits.<br /><br />Prepping for the First 1,000
+                      Units!Happy riding,<br /><br />Spyra Team
+                    </p>
+                  </div>
                 </div>
-                <div
-                  class="faq__item d-flex justify-content-between cursor-pointer border-xl p-4 mb-4"
-                >
-                  <span class="item__title fw-medium">Is this dangerous?</span>
-                  <span
-                    class="item__svg p-2 d-flex justify-content-center align-items-center"
-                    ><svg
-                      class="w-100 h-100"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 512 512"
-                    >
-                      <path
-                        d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
-                      />
-                    </svg>
-                  </span>
-                </div>
-                <div
-                  class="faq__item d-flex justify-content-between cursor-pointer border-xl p-4 mb-4"
-                >
-                  <span class="item__title fw-medium">What's your policy?</span>
-                  <span
-                    class="item__svg p-2 d-flex justify-content-center align-items-center"
-                    ><svg
-                      class="w-100 h-100"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 512 512"
-                    >
-                      <path
-                        d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
-                      />
-                    </svg>
-                  </span>
-                </div>
-                <div
-                  class="faq__item d-flex justify-content-between cursor-pointer border-xl p-4 mb-4"
-                >
-                  <span class="item__title fw-medium"
-                    >Is the SpyraGravitywaterproof?</span
+                <div class="faq__item mb-4 border-xl" tabindex="4">
+                  <div
+                    class="item__header w-100 d-flex justify-content-between p-4"
                   >
-                  <span
-                    class="item__svg p-2 d-flex justify-content-center align-items-center"
-                    ><svg
-                      class="w-100 h-100"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 512 512"
+                    <span class="item__title fw-medium"
+                      >Is this dangerous?</span
                     >
-                      <path
-                        d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
-                      />
-                    </svg>
-                  </span>
+                    <span
+                      class="item__svg p-2 d-flex justify-content-center align-items-center"
+                      ><svg
+                        class="w-100 h-100"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 512 512"
+                      >
+                        <path
+                          d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  <div class="faq__content overflow-hidden">
+                    <p class="fs-small fw-normal pb-4 ps-4 pe-4 mb-0">
+                      Latest Production Update & Speed Limit Info for Europe<br /><br />Dear
+                      Backers,<br /><br />Before we begin mass production, we
+                      need to order the materials from our suppliers. Once all
+                      the necessary components are in stock, we’ll promptly set
+                      up the production line and schedule our team to start the
+                      formal production phase. At the moment, we’re focused on
+                      this crucial and time-consuming stage of receiving all the
+                      materials. We truly appreciate your patience and support
+                      during this important process. We expect to have all the
+                      necessary materials ready by early September. Although
+                      this stage does take some time, it’s all to ensure that
+                      everything meets our high standards.<br /><br />We’ve also
+                      photographed some essential materials that have arrived,
+                      including packaging, electronic components, circuit
+                      boards, and structural parts. Our goal is to prepare for
+                      the production of 1,000 units. Once everything is set,
+                      we'll kick off the production phase, with plans to
+                      start shipping the first batch of 250 units by
+                      mid-September. We'll continue to keep you updated on our
+                      progress, so stay tuned for more!<br /><br />Alright,
+                      that’s all for now! We hope you enjoyed the update. Over
+                      the next few weeks, we’ll keep you informed with the
+                      latest on production, certification, and shipping
+                      progress.We truly appreciate your support and will keep
+                      you updated every step of the way!<br /><br />Happy
+                      riding,<br /><br />Spyra Team
+                    </p>
+                  </div>
                 </div>
-                <div
-                  class="faq__item d-flex justify-content-between cursor-pointer border-xl p-4 mb-4"
-                >
-                  <span class="item__title fw-medium"
-                    >Can I use SpyraGravitywith different water booms?</span
+                <div class="faq__item mb-4 border-xl" tabindex="5">
+                  <div
+                    class="item__header w-100 d-flex justify-content-between p-4"
                   >
-                  <span
-                    class="item__svg p-2 d-flex justify-content-center align-items-center"
-                    ><svg
-                      class="w-100 h-100"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 512 512"
+                    <span class="item__title fw-medium"
+                      >What's your policy?</span
                     >
-                      <path
-                        d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
-                      />
-                    </svg>
-                  </span>
+                    <span
+                      class="item__svg p-2 d-flex justify-content-center align-items-center"
+                      ><svg
+                        class="w-100 h-100"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 512 512"
+                      >
+                        <path
+                          d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  <div class="faq__content overflow-hidden">
+                    <p class="fs-small fw-normal pb-4 ps-4 pe-4 mb-0">
+                      Latest Production Update & Speed Limit Info for Europe<br /><br />Dear
+                      Backers,<br /><br />We’re thrilled to share that, with the
+                      support of nearly 700 backers, we’ve already raised over
+                      $250,000 in crowdfunding! This incredible achievement
+                      wouldn’t have been possible without your trust and
+                      support. We’ve been diligently keeping track of the
+                      factory’s production progress, and today we want to
+                      share the latest updates on PikaBoost 2 and provide a
+                      sincere response to the concerns about European speed
+                      limits.<br /><br />Prepping for the First 1,000
+                      Units!Happy riding,<br /><br />Spyra Team
+                    </p>
+                  </div>
+                </div>
+                <div class="faq__item mb-4 border-xl" tabindex="6">
+                  <div
+                    class="item__header w-100 d-flex justify-content-between p-4"
+                  >
+                    <span class="item__title fw-medium"
+                      >Is the SpyraGravitywaterproof?</span
+                    >
+                    <span
+                      class="item__svg p-2 d-flex justify-content-center align-items-center"
+                      ><svg
+                        class="w-100 h-100"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 512 512"
+                      >
+                        <path
+                          d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  <div class="faq__content overflow-hidden">
+                    <p class="fs-small fw-normal pb-4 ps-4 pe-4 mb-0">
+                      Latest Production Update & Speed Limit Info for Europe<br /><br />Dear
+                      Backers,<br /><br />Before we begin mass production, we
+                      need to order the materials from our suppliers. Once all
+                      the necessary components are in stock, we’ll promptly set
+                      up the production line and schedule our team to start the
+                      formal production phase. At the moment, we’re focused on
+                      this crucial and time-consuming stage of receiving all the
+                      materials. We truly appreciate your patience and support
+                      during this important process. We expect to have all the
+                      necessary materials ready by early September. Although
+                      this stage does take some time, it’s all to ensure that
+                      everything meets our high standards.<br /><br />We’ve also
+                      photographed some essential materials that have arrived,
+                      including packaging, electronic components, circuit
+                      boards, and structural parts. Our goal is to prepare for
+                      the production of 1,000 units. Once everything is set,
+                      we'll kick off the production phase, with plans to
+                      start shipping the first batch of 250 units by
+                      mid-September. We'll continue to keep you updated on our
+                      progress, so stay tuned for more!<br /><br />Alright,
+                      that’s all for now! We hope you enjoyed the update. Over
+                      the next few weeks, we’ll keep you informed with the
+                      latest on production, certification, and shipping
+                      progress.We truly appreciate your support and will keep
+                      you updated every step of the way!<br /><br />Happy
+                      riding,<br /><br />Spyra Team
+                    </p>
+                  </div>
+                </div>
+                <div class="faq__item mb-4 border-xl" tabindex="7">
+                  <div
+                    class="item__header w-100 d-flex justify-content-between p-4"
+                  >
+                    <span class="item__title fw-medium"
+                      >Can I use SpyraGravitywith different water booms?</span
+                    >
+                    <span
+                      class="item__svg p-2 d-flex justify-content-center align-items-center"
+                      ><svg
+                        class="w-100 h-100"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 512 512"
+                      >
+                        <path
+                          d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  <div class="faq__content overflow-hidden">
+                    <p class="fs-small fw-normal pb-4 ps-4 pe-4 mb-0">
+                      Latest Production Update & Speed Limit Info for Europe<br /><br />Dear
+                      Backers,<br /><br />We’re thrilled to share that, with the
+                      support of nearly 700 backers, we’ve already raised over
+                      $250,000 in crowdfunding! This incredible achievement
+                      wouldn’t have been possible without your trust and
+                      support. We’ve been diligently keeping track of the
+                      factory’s production progress, and today we want to
+                      share the latest updates on PikaBoost 2 and provide a
+                      sincere response to the concerns about European speed
+                      limits.<br /><br />Prepping for the First 1,000
+                      Units!Happy riding,<br /><br />Spyra Team
+                    </p>
+                  </div>
+                </div>
+                <div class="faq__item mb-4 border-xl" tabindex="8">
+                  <div
+                    class="item__header w-100 d-flex justify-content-between p-4"
+                  >
+                    <span class="item__title fw-medium"
+                      >Does SpyraGravity has any safety features?</span
+                    >
+                    <span
+                      class="item__svg p-2 d-flex justify-content-center align-items-center"
+                      ><svg
+                        class="w-100 h-100"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 512 512"
+                      >
+                        <path
+                          d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  <div class="faq__content overflow-hidden">
+                    <p class="fs-small fw-normal pb-4 ps-4 pe-4 mb-0">
+                      Latest Production Update & Speed Limit Info for Europe<br /><br />Dear
+                      Backers,<br /><br />Before we begin mass production, we
+                      need to order the materials from our suppliers. Once all
+                      the necessary components are in stock, we’ll promptly set
+                      up the production line and schedule our team to start the
+                      formal production phase. At the moment, we’re focused on
+                      this crucial and time-consuming stage of receiving all the
+                      materials. We truly appreciate your patience and support
+                      during this important process. We expect to have all the
+                      necessary materials ready by early September. Although
+                      this stage does take some time, it’s all to ensure that
+                      everything meets our high standards.<br /><br />We’ve also
+                      photographed some essential materials that have arrived,
+                      including packaging, electronic components, circuit
+                      boards, and structural parts. Our goal is to prepare for
+                      the production of 1,000 units. Once everything is set,
+                      we'll kick off the production phase, with plans to
+                      start shipping the first batch of 250 units by
+                      mid-September. We'll continue to keep you updated on our
+                      progress, so stay tuned for more!<br /><br />Alright,
+                      that’s all for now! We hope you enjoyed the update. Over
+                      the next few weeks, we’ll keep you informed with the
+                      latest on production, certification, and shipping
+                      progress.We truly appreciate your support and will keep
+                      you updated every step of the way!<br /><br />Happy
+                      riding,<br /><br />Spyra Team
+                    </p>
+                  </div>
+                </div>
+                <div class="faq__item mb-4 border-xl" tabindex="9">
+                  <div
+                    class="item__header w-100 d-flex justify-content-between p-4"
+                  >
+                    <span class="item__title fw-medium"
+                      >Is this product eco-frindly?</span
+                    >
+                    <span
+                      class="item__svg p-2 d-flex justify-content-center align-items-center"
+                      ><svg
+                        class="w-100 h-100"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 512 512"
+                      >
+                        <path
+                          d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  <div class="faq__content overflow-hidden">
+                    <p class="fs-small fw-normal pb-4 ps-4 pe-4 mb-0">
+                      Latest Production Update & Speed Limit Info for Europe<br /><br />Dear
+                      Backers,<br /><br />We’re thrilled to share that, with the
+                      support of nearly 700 backers, we’ve already raised over
+                      $250,000 in crowdfunding! This incredible achievement
+                      wouldn’t have been possible without your trust and
+                      support. We’ve been diligently keeping track of the
+                      factory’s production progress, and today we want to
+                      share the latest updates on PikaBoost 2 and provide a
+                      sincere response to the concerns about European speed
+                      limits.<br /><br />Prepping for the First 1,000
+                      Units!Happy riding,<br /><br />Spyra Team
+                    </p>
+                  </div>
+                </div>
+                <div class="faq__item mb-4 border-xl" tabindex="10">
+                  <div
+                    class="item__header w-100 d-flex justify-content-between p-4"
+                  >
+                    <span class="item__title fw-medium"
+                      >What's the estimated shipping date?</span
+                    >
+                    <span
+                      class="item__svg p-2 d-flex justify-content-center align-items-center"
+                      ><svg
+                        class="w-100 h-100"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 512 512"
+                      >
+                        <path
+                          d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  <div class="faq__content overflow-hidden">
+                    <p class="fs-small fw-normal pb-4 ps-4 pe-4 mb-0">
+                      Latest Production Update & Speed Limit Info for Europe<br /><br />Dear
+                      Backers,<br /><br />Before we begin mass production, we
+                      need to order the materials from our suppliers. Once all
+                      the necessary components are in stock, we’ll promptly set
+                      up the production line and schedule our team to start the
+                      formal production phase. At the moment, we’re focused on
+                      this crucial and time-consuming stage of receiving all the
+                      materials. We truly appreciate your patience and support
+                      during this important process. We expect to have all the
+                      necessary materials ready by early September. Although
+                      this stage does take some time, it’s all to ensure that
+                      everything meets our high standards.<br /><br />We’ve also
+                      photographed some essential materials that have arrived,
+                      including packaging, electronic components, circuit
+                      boards, and structural parts. Our goal is to prepare for
+                      the production of 1,000 units. Once everything is set,
+                      we'll kick off the production phase, with plans to
+                      start shipping the first batch of 250 units by
+                      mid-September. We'll continue to keep you updated on our
+                      progress, so stay tuned for more!<br /><br />Alright,
+                      that’s all for now! We hope you enjoyed the update. Over
+                      the next few weeks, we’ll keep you informed with the
+                      latest on production, certification, and shipping
+                      progress.We truly appreciate your support and will keep
+                      you updated every step of the way!<br /><br />Happy
+                      riding,<br /><br />Spyra Team
+                    </p>
+                  </div>
+                </div>
+                <div class="faq__item mb-4 border-xl" tabindex="11">
+                  <div
+                    class="item__header w-100 d-flex justify-content-between p-4"
+                  >
+                    <span class="item__title fw-medium"
+                      >Can I co-operate with you guys?</span
+                    >
+                    <span
+                      class="item__svg p-2 d-flex justify-content-center align-items-center"
+                      ><svg
+                        class="w-100 h-100"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 512 512"
+                      >
+                        <path
+                          d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  <div class="faq__content overflow-hidden">
+                    <p class="fs-small fw-normal pb-4 ps-4 pe-4 mb-0">
+                      Latest Production Update & Speed Limit Info for Europe<br /><br />Dear
+                      Backers,<br /><br />We’re thrilled to share that, with the
+                      support of nearly 700 backers, we’ve already raised over
+                      $250,000 in crowdfunding! This incredible achievement
+                      wouldn’t have been possible without your trust and
+                      support. We’ve been diligently keeping track of the
+                      factory’s production progress, and today we want to
+                      share the latest updates on PikaBoost 2 and provide a
+                      sincere response to the concerns about European speed
+                      limits.<br /><br />Prepping for the First 1,000
+                      Units!Happy riding,<br /><br />Spyra Team
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -3870,7 +4252,7 @@
                         </div>
                       </div>
                       <hr class="hr-1" />
-                      <p class="position-relative overflow-hidden mb-0">
+                      <p class="mb-0">
                         Latest Production Update & Speed Limit Info for
                         Europe<br /><br />Dear Backers,<br /><br />We’re
                         thrilled to share that, with the support of nearly 700
@@ -4011,7 +4393,7 @@
                         </div>
                       </div>
                       <hr class="hr-1" />
-                      <p class="position-relative overflow-hidden mb-0">
+                      <p class="mb-0">
                         Latest Production Update & Speed Limit Info for
                         Europe<br /><br />Dear Backers,<br /><br />We’re
                         thrilled to share that, with the support of nearly 700
@@ -4154,7 +4536,7 @@
                         </div>
                       </div>
                       <hr class="hr-1" />
-                      <p class="position-relative overflow-hidden mb-0">
+                      <p class="mb-0">
                         Latest Production Update & Speed Limit Info for
                         Europe<br /><br />Dear Backers,<br /><br />We’re
                         thrilled to share that, with the support of nearly 700
@@ -5008,10 +5390,14 @@
     <script>
       import { SMOOTH } from "../../constant.js";
 
+      const getElementOffsetTop = (element) => {
+        return element.offsetTop - 80; // header: 80
+      };
+
       const scrollToElement = (element) => {
         if (element) {
           window.scrollTo({
-            top: element.offsetTop - 80,
+            top: getElementOffsetTop(element),
             behavior: SMOOTH,
           });
         }
@@ -5049,6 +5435,7 @@
         isReading
       ) => {
         const buttons = document.querySelectorAll(selector);
+        if (!updateContent || !updateItems || !buttons.length) return;
         buttons.forEach((button) => {
           button.addEventListener("click", (event) =>
             handleToggle(event, updateContent, updateItems, isReading)
@@ -5056,12 +5443,62 @@
         });
       };
 
+      const handleFocus = (faqItem, previousTabIndex) => {
+        const currentTabIndex = faqItem.getAttribute("tabindex");
+        if (previousTabIndex.value === currentTabIndex) {
+          previousTabIndex.value = null;
+          return;
+        }
+
+        const duration =
+          previousTabIndex.value &&
+          Number(previousTabIndex.value) < Number(currentTabIndex)
+            ? 700
+            : 0;
+
+        setTimeout(() => {
+          window.scrollTo({
+            top: getElementOffsetTop(faqItem),
+            behavior: SMOOTH,
+          });
+        }, duration);
+        previousTabIndex.value = currentTabIndex;
+      };
+
+      const handleClickOutsideFaq = (e, faqItems, previousTabIndex) => {
+        console.log(123);
+
+        const isClickItem = Array.from(faqItems).some((faqItem) =>
+          faqItem.contains(e.target)
+        );
+
+        if (!isClickItem && previousTabIndex) {
+          previousTabIndex.value = null;
+        }
+      };
+
+      const setupScrollFaq = (faqItems) => {
+        if (!faqItems.length) return;
+
+        let previousTabIndex = { value: null };
+
+        faqItems.forEach((faqItem) => {
+          faqItem.addEventListener("click", () => faqItem.focus());
+
+          faqItem.addEventListener("focus", () =>
+            handleFocus(faqItem, previousTabIndex)
+          );
+        });
+
+        const clickHandler = (e) =>
+          handleClickOutsideFaq(e, faqItems, previousTabIndex);
+        document.addEventListener("click", clickHandler);
+        return clickHandler;
+      };
+
       (function initializeApp() {
         const updateContent = document.querySelector(".updates__wrapper");
         const updateItems = document.querySelector(".update__items");
-
-        if (!updateContent || !updateItems) return;
-
         // buttons to click,  updateContent to scroll, updateItems to show hide, true-false to show hide
         setupButtonListener(
           ".update__action .readmore",
@@ -5075,6 +5512,13 @@
           updateItems,
           false
         );
+
+        const faqItems = document.querySelectorAll(".faq__item");
+        const scrollFaq = setupScrollFaq(faqItems);
+
+        window.beforeUnmount = () => {
+          document.removeEventListener("click", scrollFaq);
+        };
       })();
     </script>
   </body>

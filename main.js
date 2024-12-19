@@ -31,7 +31,7 @@ function addStyleAndScripts(doc, elementId) {
   styleTags.forEach((style) => {
     const newStyle = document.createElement("style");
     newStyle.innerHTML = style.innerHTML;
-    newStyle.setAttribute("style", elementId);
+    newStyle.setAttribute("data-owner", elementId);
     document.head.appendChild(newStyle);
   });
 
@@ -41,7 +41,7 @@ function addStyleAndScripts(doc, elementId) {
     const newScript = document.createElement("script");
     newScript.type = "module";
     newScript.innerHTML = script.innerHTML;
-    newScript.setAttribute("script", elementId);
+    newScript.setAttribute("data-owner", elementId);
     document.body.appendChild(newScript);
     script.remove();
   });
@@ -49,14 +49,22 @@ function addStyleAndScripts(doc, elementId) {
 
 function removeStylesAndScripts(elementId) {
   document
-    .querySelectorAll(
-      `style[style="${elementId}"], script[script="${elementId}"]`
-    )
+    .querySelectorAll(`[data-owner="${elementId}"]`)
     .forEach((el) => el.remove());
+}
+
+function handleUnmount(elementId) {
+  if (typeof window.beforeUnmount === "function") {
+    window.beforeUnmount();
+  }
+  removeStylesAndScripts(elementId);
+  window.beforeUnmount = () => {};
 }
 
 async function loadContent(url, elementId) {
   try {
+    if (elementId === "app") handleUnmount(elementId);
+
     const response = await fetch(url);
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
@@ -65,25 +73,31 @@ async function loadContent(url, elementId) {
     const parser = new DOMParser();
     const doc = parser.parseFromString(data, "text/html");
 
-    if (elementId === "app") removeStylesAndScripts(elementId); // remove style and script of page
-
+    window.beforeUnmount = () => {};
     addStyleAndScripts(doc, elementId);
     // Set the content
     document.getElementById(elementId).innerHTML = doc.body.innerHTML;
   } catch (error) {
-    console.error("Error loading content:", error);
+    await pageNotFound();
   }
 }
 
+async function pageNotFound() {
+  window.location.hash = "#/404";
+  const route = routes.find((r) => `#${r.path}` === window.location.hash);
+  const notFoundUrl = await route.component();
+  await loadContent(notFoundUrl, "app");
+}
 // routing
 async function handleRouting() {
   window.scrollTo(0, 0);
   const hash = window.location.hash || "#/";
   const route = routes.find((r) => `#${r.path}` === hash);
-
   if (route && typeof route.component === "function") {
     const contentUrl = await route.component();
     loadContent(contentUrl, "app");
+  } else {
+    await pageNotFound();
   }
   return;
 }
